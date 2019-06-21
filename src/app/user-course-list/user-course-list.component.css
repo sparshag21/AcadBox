@@ -1,0 +1,25 @@
+.header{
+    margin-top: 10%;
+}
+
+table{
+    display: block;
+    overflow: auto;
+    height: 400px;
+}
+
+tr:nth-child(odd){
+    background-color: #3F51B5;
+    color: white;
+}
+
+td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;    
+}
+
+.del-button{
+    margin-left: 250px;
+}
