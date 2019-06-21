@@ -1,1 +1,11 @@
-@import '~@angular/material/prebuilt-themes/purple-green.css';
+/* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
+
+html, body{
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    margin : 0;
+}
+

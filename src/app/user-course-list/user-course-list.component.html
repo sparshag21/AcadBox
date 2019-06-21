@@ -1,0 +1,15 @@
+<div fxLayout="column" fxLayoutAlign="center center" >
+  <div fxLayout="row" class="header">
+    <h1 fxFlex="60">My Courses</h1>
+    <div fxFlex=40 fxLayoutAlign="center center" class="add-course">
+      <button mat-flat-button color="accent">Add Course</button>
+    </div>
+  </div>
+  <div>
+    <table>
+      <tr *ngFor="let course of courseList">
+        <td>{{course.name}} <button mat-flat-button color="warn" class="del-button">Remove</button></td>
+      </tr>
+    </table>
+  </div>
+</div>

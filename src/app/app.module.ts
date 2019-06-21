@@ -3,24 +3,37 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
 
 import { CustomMaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserComponent } from './user/user.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { ProfileComponent } from './profile/profile.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserCourseListComponent } from './user-course-list/user-course-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginpageComponent,
-    UserComponent
+    ProfileComponent,
+    NavBarComponent,
+    UserDetailsComponent,
+    UserCourseListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
