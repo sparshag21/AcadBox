@@ -13,6 +13,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserCourseListComponent } from './user-course-list/user-course-list.component';
+import { AngularFireModule } from "@angular/fire";
+import { environment } from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { UserCourseListComponent } from './user-course-list/user-course-list.com
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
