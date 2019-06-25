@@ -15,6 +15,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserCourseListComponent } from './user-course-list/user-course-list.component';
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
+import { LoginpageComponent } from './loginpage/loginpage.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { environment } from "../environments/environment";
     ProfileComponent,
     NavBarComponent,
     UserDetailsComponent,
-    UserCourseListComponent
+    UserCourseListComponent,
+    LoginpageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
