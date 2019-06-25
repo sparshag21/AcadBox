@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { MatCardModule } from '@angular/material/card';
 import { CustomMaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -15,8 +16,11 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserCourseListComponent } from './user-course-list/user-course-list.component';
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
+
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterComponent } from './register/register.component';
+import { ShowFilesComponent } from './show-files/show-files.component';
+
 
 @NgModule({
   declarations: [
@@ -25,15 +29,19 @@ import { RegisterComponent } from './register/register.component';
     NavBarComponent,
     UserDetailsComponent,
     UserCourseListComponent,
+
     LoginpageComponent,
     RegisterComponent
+    ShowFilesComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     CustomMaterialModule,
     LayoutModule,
+    MatCardModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -46,3 +54,4 @@ import { RegisterComponent } from './register/register.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
