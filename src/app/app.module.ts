@@ -16,7 +16,11 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserCourseListComponent } from './user-course-list/user-course-list.component';
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
+
+import { LoginpageComponent } from './loginpage/loginpage.component';
+import { RegisterComponent } from './register/register.component';
 import { ShowFilesComponent } from './show-files/show-files.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { ShowFilesComponent } from './show-files/show-files.component';
     NavBarComponent,
     UserDetailsComponent,
     UserCourseListComponent,
+
+    LoginpageComponent,
+    RegisterComponent
     ShowFilesComponent
+
   ],
   imports: [
     BrowserModule,
