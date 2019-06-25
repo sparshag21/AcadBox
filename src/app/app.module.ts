@@ -46,5 +46,4 @@ import { ShowFilesComponent } from './show-files/show-files.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class PizzaPartyAppModule { }
 
