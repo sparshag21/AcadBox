@@ -1,1 +1,12 @@
+.vr {
+    width:1px;
+    background-color: rgba(0,0,0,0.5);
+    position:absolute;
+    top:8%;
+    bottom:1%;
+    left: 50%;
+  }
 
+.container{
+  height: 100%;
+}

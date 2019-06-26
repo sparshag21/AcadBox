@@ -1,8 +1,10 @@
-<div fxLayout="row">
-    <div fxFlex=50>
+<div fxLayout fxLayout.lt-lg="column">
+    <div fxFlex=50 class="container">
         <app-user-details></app-user-details>
     </div>
-    <div fxFlex=50>
+    <div class="vr" [fxHide.lt-lg]="true">&nbsp;</div>
+    <div [fxHide.gt-sm]="true">&nbsp;</div>
+    <div fxFlex=50 class="container">
         <app-user-course-list></app-user-course-list>
     </div>
 </div>

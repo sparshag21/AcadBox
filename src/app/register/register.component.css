@@ -1,8 +1,31 @@
-body {
-    padding: 20px 80px; 
-    background-color: beige
+#container{
+  height: 92%;
+}
+
+#content-container{
+  padding: 2%;
+  padding-top: 4%;
+  border: 1px solid black;
+  width: 500px;
+}
+
+#text-container{
+  width: 80%;
+}
+
+.detail-input{
+  width: 100%;
+}
+
+@media (max-width: 900px){
+  #content-container{
+    width: 400px;
   }
-  button{
-    color:white;
-    background-color: purple;
+}
+
+@media (max-width: 600px){
+  #content-container{
+    border: none;
+    width: 400px;
   }
+}
