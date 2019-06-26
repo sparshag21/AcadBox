@@ -28,21 +28,23 @@
 </div> -->
 <body>
 <div fxLayout="row" fxLayoutAlign="space-evenly center">
-  <div fxFlex="40">
-  <mat-form-field>
+  <div fxLayout="column" fxFlex="40" id="details" fxLayoutAlign="center center">
+  <mat-form-field class="input">
     <input matInput placeholder="Email">
-  </mat-form-field><br>
-  <mat-form-field>
+  </mat-form-field>
+  <mat-form-field class="input">
       <input matInput type="password" placeholder="Password">
     </mat-form-field><br>
-    <button mat-button>Login</button><br><br>
-    <div >
-      <span>New User?</span><br>
+    <button mat-button>Login</button><br>
+    <div>
+      New User?
+      <div>
       <button mat-button>Register</button>
+    </div><br>
   </div>
   </div>
 <div fxFlex="60" align="center">
-  <img src="https://pbs.twimg.com/media/BOdrc3cCcAA5ka8.jpg:large"><br><br><br><br><br>
+  <img src="https://pbs.twimg.com/media/BOdrc3cCcAA5ka8.jpg:large">
 </div>
 </div>
 </body>
