@@ -29,11 +29,9 @@ import { ShowFilesComponent } from './show-files/show-files.component';
     NavBarComponent,
     UserDetailsComponent,
     UserCourseListComponent,
-
     LoginpageComponent,
-    RegisterComponent
+    RegisterComponent,
     ShowFilesComponent
-
   ],
   imports: [
     BrowserModule,

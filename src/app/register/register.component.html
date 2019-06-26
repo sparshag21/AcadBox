@@ -1,25 +1,25 @@
-<body>
-  <div fxLayout="row" fxLayoutAlign="space-evenly center">
-    <div fxFlex="40">
-    <mat-form-field>
-      <input matInput placeholder="First Name">
-    </mat-form-field><br>
-    <mat-form-field>
-      <input matInput placeholder="Last Name">
-    </mat-form-field><br>
-    <mat-form-field>
-      <input matInput placeholder="Email">
-    </mat-form-field><br>
-    <mat-form-field>
-        <input matInput type="password" placeholder="Password">
-      </mat-form-field><br>
-      <mat-form-field>
-        <input matInput type="password" placeholder="Confirm Password">
-      </mat-form-field><br>
-      <button mat-button>Register</button>
-    </div>
-  <div fxFlex="60">
-    <img src="https://pbs.twimg.com/media/BOdrc3cCcAA5ka8.jpg:large">
+<div fxLayout="row" fxLayoutAlign="center center" id="container">
+  <div fxLayout="column" fxLayoutAlign="center center" id="content-container">
+      <div id="text-container">
+        <mat-form-field class="detail-input">
+          <input matInput placeholder="Name">
+        </mat-form-field><br>
+        <mat-form-field class="detail-input">
+          <input matInput placeholder="Username">
+        </mat-form-field><br>
+        <mat-form-field class="detail-input">
+          <input matInput type="password" placeholder="Password">
+        </mat-form-field><br>
+        <mat-form-field class="detail-input">
+          <input matInput type="password" placeholder="Confirm Password">
+        </mat-form-field><br>
+        <mat-form-field class="detail-input">
+          <input matInput placeholder="Roll Number">
+        </mat-form-field><br>
+        <mat-form-field class="detail-input">
+          <input matInput placeholder="Email">
+        </mat-form-field><br><br>
+      </div>
+      <button mat-flat-button color="primary">Register</button>
   </div>
-  </div>
-  </body>
+</div>

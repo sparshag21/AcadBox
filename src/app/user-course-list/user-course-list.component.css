@@ -1,5 +1,6 @@
 .header{
-    margin-top: 10%;
+    margin-top: 12%;
+    width: 460px;
 }
 
 table{
@@ -9,8 +10,7 @@ table{
 }
 
 tr:nth-child(odd){
-    background-color: #3F51B5;
-    color: white;
+    background-color: rgb(154, 163, 216);
 }
 
 td{
@@ -22,4 +22,20 @@ td{
 
 .del-button{
     margin-left: 250px;
+}
+
+#add{
+    width: 150px;
+}
+
+@media (max-width: 600px){
+    #add{
+        width: 100px;
+    }
+    .header{
+        width: 300px;
+    }
+    .del-button{
+        margin-left: 130px;
+    }
 }
