@@ -14,5 +14,17 @@ button{
 }
 
 .input{
-  width: 80%;
+  width: 90%;
+}
+
+@media (max-width: 900px){
+  .content{
+    width: 700px;
+  }
+}
+
+@media (max-width: 600px){
+  .content{
+    width: 700px;
+  }
 }
