@@ -6,30 +6,35 @@ body {
   background-color: lightslategray;
   background-image: url("https://images.wallpaperscraft.com/image/books_vintage_paper_cards_notebook_retro_74362_1920x1080.jpg");
 }
-/* button{
-  color:white;
-  background-color: purple;
-} */
 
 #details{
-  border: 0.02px solid black;
+  border: 0.01px solid black;
+  border-radius: 12px; 
   padding-top: 2%;  
-  background-color: white;
   width : 50%;
   height : 90%;
-  /* bottom: 30%; */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.35);
 }
 
 #extra{
   top : 90%;
   height : 10% ;
-  /* background-color: black; */
   color:black;
   width: 100%;
 }
 
 .input{
   width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(111, 61, 158);
+  border-radius: 4px;
+}
+
+.input:focus {
+  background-color: lightblue;
 }
 
 @media (max-width: 900px){
