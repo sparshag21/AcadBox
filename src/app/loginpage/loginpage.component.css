@@ -1,7 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
 @import url(https://fonts.googleapis.com/css?family=Squada+One);
 body {
-  padding: 20px 80px; 
+  padding-top: 40px;
+  height: 100%;  
+  background-color: lightslategray;
+  background-image: "https://pbs.twimg.com/media/BOdrc3cCcAA5ka8.jpg:large";
 }
 button{
   color:white;
@@ -9,8 +12,20 @@ button{
 }
 
 #details{
-  border: 1px solid black;
+  border: 0.02px solid black;
   padding-top: 2%;  
+  background-color: white;
+  width : 50%;
+  height : 90%;
+  /* bottom: 30%; */
+}
+
+#extra{
+  top : 90%;
+  height : 10% ;
+  background-color: black;
+  color: white;
+  width: 100%;
 }
 
 .input{
