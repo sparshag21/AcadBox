@@ -4,12 +4,12 @@ body {
   padding-top: 40px;
   height: 100%;  
   background-color: lightslategray;
-  background-image: "https://pbs.twimg.com/media/BOdrc3cCcAA5ka8.jpg:large";
+  background-image: url("https://images.wallpaperscraft.com/image/books_vintage_paper_cards_notebook_retro_74362_1920x1080.jpg");
 }
-button{
+/* button{
   color:white;
   background-color: purple;
-}
+} */
 
 #details{
   border: 0.02px solid black;
@@ -23,8 +23,8 @@ button{
 #extra{
   top : 90%;
   height : 10% ;
-  background-color: black;
-  color: white;
+  /* background-color: black; */
+  color:black;
   width: 100%;
 }
 
