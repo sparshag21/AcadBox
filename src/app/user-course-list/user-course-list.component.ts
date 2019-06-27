@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCourseListComponent implements OnInit {
 
-  courseList=[];
+  courseList=[{name : "ECO101"}, {name : "ECO101"}, {name : "ECO101"}, {name : "ECO101"}, {name : "ECO101"}, {name : "ECO101"}, {name : "ECO101"}, {name : "ECO101"}];
 
   constructor() { }
 

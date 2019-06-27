@@ -1,6 +1,9 @@
 .header{
-    margin-top: 12%;
     width: 460px;
+}
+
+.container{
+    height: 100%;
 }
 
 table{
