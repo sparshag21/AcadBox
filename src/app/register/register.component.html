@@ -3,24 +3,24 @@
       <h1>Register</h1>
       <div id="text-container">
         <mat-form-field class="detail-input">
-          <input matInput placeholder="Name">
+          <input matInput [(ngModel)]="user.name" placeholder="Name" />
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput placeholder="Username">
+          <input matInput placeholder="Username" [(ngModel)]="user.username"/>
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput type="password" placeholder="Password">
+          <input matInput placeholder="Email" type="email" [(ngModel)]="user.email"/>
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput type="password" placeholder="Confirm Password">
+          <input matInput type="password" placeholder="Password" [(ngModel)]="user.password"/>
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput placeholder="Roll Number">
+          <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="user.confirm"/>
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput placeholder="Email">
+          <input matInput placeholder="Roll Number" [(ngModel)]="user.roll"/>
         </mat-form-field><br><br>
       </div>
-      <button mat-flat-button color="primary">Register</button>
+      <button mat-flat-button color="primary" (click)="check_validation()">Register</button>
   </div>
 </div>

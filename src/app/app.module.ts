@@ -15,7 +15,9 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserCourseListComponent } from './user-course-list/user-course-list.component';
 import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from "../environments/environment";
+import { FormsModule } from "@angular/forms";
 
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterComponent } from './register/register.component';
@@ -48,7 +50,9 @@ import { LoginSinglePageComponent } from './login-single-page/login-single-page.
     MatIconModule,
     MatListModule,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
