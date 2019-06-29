@@ -15,12 +15,16 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserCourseListComponent } from './user-course-list/user-course-list.component';
 import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from "../environments/environment";
+import { FormsModule } from "@angular/forms";
 
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterComponent } from './register/register.component';
 import { ShowFilesComponent } from './show-files/show-files.component';
 import { LoginSinglePageComponent } from './login-single-page/login-single-page.component';
+import { AlertBoxComponent } from './alert-box/alert-box.component';
 
 
 @NgModule({
@@ -33,7 +37,8 @@ import { LoginSinglePageComponent } from './login-single-page/login-single-page.
     LoginpageComponent,
     RegisterComponent,
     ShowFilesComponent,
-    LoginSinglePageComponent
+    LoginSinglePageComponent,
+    AlertBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,10 @@ import { LoginSinglePageComponent } from './login-single-page/login-single-page.
     MatIconModule,
     MatListModule,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
