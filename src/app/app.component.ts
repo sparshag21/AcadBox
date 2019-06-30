@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, ElementRef, PipeTransform, Pipe, OnInit } from '@angular/core';
+import { FILES } from "./mock-files";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AcadBox';
+  files = FILES;
 }

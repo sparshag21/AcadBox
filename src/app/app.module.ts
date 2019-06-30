@@ -22,7 +22,6 @@ import { RegisterComponent } from './register/register.component';
 import { ShowFilesComponent } from './show-files/show-files.component';
 import { LoginSinglePageComponent } from './login-single-page/login-single-page.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
