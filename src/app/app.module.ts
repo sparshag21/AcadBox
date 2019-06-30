@@ -66,8 +66,7 @@ import { AlertBoxComponent } from './alert-box/alert-box.component';
     ReactiveFormsModule,
     MatTableFilterModule,
     AngularFireAuthModule,
-    AngularFirestoreModule,
-    FormsModule
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
