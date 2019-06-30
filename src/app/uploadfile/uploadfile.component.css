@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+@import url(https://fonts.googleapis.com/css?family=Squada+One);
+body {
+  padding-top: 40px;
+  height: 100%;  
+  background-color: lightslategray;
+  background-image: url("http://backgrounddownload.com/wp-content/uploads/2018/09/files-background-6.jpg");
+}
+
+#details{
+  border: 0.01px solid black;
+  border-radius: 12px; 
+  padding-top: 2%;  
+  width : 50%;
+  height : 90%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+#extra{
+  top : 90%;
+  height : 10% ;
+  color:black;
+  width: 100%;
+}
+
+.detail-input{
+  width: 200%;
+  padding: 12px 20px;
+  margin: 2px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(111, 61, 158);
+  /* border-radius: 4px; */
+  background-color: whitesmoke;
+}
+
+.input:focus {
+  background-color: lightblue;
+}
+
+@media (max-width: 900px){
+  .content{
+    width: 700px;
+  }
+}
+
+@media (max-width: 600px){
+  .content{
+    width: 700px;
+  }
+}

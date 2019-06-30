@@ -21,6 +21,7 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterComponent } from './register/register.component';
 import { ShowFilesComponent } from './show-files/show-files.component';
 import { LoginSinglePageComponent } from './login-single-page/login-single-page.component';
+import { UploadfileComponent } from './uploadfile/uploadfile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginSinglePageComponent } from './login-single-page/login-single-page.
     LoginpageComponent,
     RegisterComponent,
     ShowFilesComponent,
-    LoginSinglePageComponent
+    LoginSinglePageComponent,
+    UploadfileComponent
   ],
   imports: [
     BrowserModule,
