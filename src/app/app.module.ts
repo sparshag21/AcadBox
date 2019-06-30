@@ -15,7 +15,10 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserCourseListComponent } from './user-course-list/user-course-list.component';
 import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from "../environments/environment";
+import { FormsModule } from "@angular/forms";
 
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterComponent } from './register/register.component';
@@ -23,6 +26,8 @@ import { ShowFilesComponent } from './show-files/show-files.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableFilterModule } from 'mat-table-filter';
+import { LoginSinglePageComponent } from './login-single-page/login-single-page.component';
+import { AlertBoxComponent } from './alert-box/alert-box.component';
 
 
 @NgModule({
@@ -35,7 +40,9 @@ import { MatTableFilterModule } from 'mat-table-filter';
     LoginpageComponent,
     RegisterComponent,
     ShowFilesComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginSinglePageComponent,
+    AlertBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +64,10 @@ import { MatTableFilterModule } from 'mat-table-filter';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableFilterModule
+    MatTableFilterModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

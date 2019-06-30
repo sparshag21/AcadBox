@@ -9,33 +9,8 @@ body {
   background: #eee url(https://subtlepatterns.com/patterns/extra_clean_paper.png);
 }
 
-#title{
-    /* width: 200px; */
-    background: rgb(84, 84, 233);
-    color: white;
-
-}
-
 .container{
   align-items: down;
-}
-
-#uploader{
-    width: 100px;
-    /* padding: 10px; */
-    border-spacing: 2px;
-    background: blue;
-    color: white;
-}
-#rating{
-    width: 50px;
-    background: rgb(102, 67, 255);
-    color: white;
-}
-#rate{
-    width: 50px;
-    background: blue;
-    color: white;
 }
 
 .center{

@@ -1,25 +1,36 @@
 <div fxLayout="row" fxLayoutAlign="center center" id="container">
   <div fxLayout="column" fxLayoutAlign="center center" id="content-container">
+      <div *ngFor="let text of message" style="width: 100%">
+        <app-alert-box [message]="text" [color]="true"></app-alert-box>
+      </div>
+      <div *ngFor="let text of notify" style="width: 100%">
+        <app-alert-box [message]="text" [color]="false"></app-alert-box>
+      </div>
+      <h1>Register</h1>
       <div id="text-container">
         <mat-form-field class="detail-input">
-          <input matInput placeholder="Name">
+          <input matInput [(ngModel)]="user.name" placeholder="Name" required="true" />
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput placeholder="Username">
+          <input matInput placeholder="Username" [(ngModel)]="user.username" required="true"/>
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput type="password" placeholder="Password">
+          <input matInput placeholder="Email" type="email" [(ngModel)]="user.email" required="true"/>
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput type="password" placeholder="Confirm Password">
+          <input matInput type="password" placeholder="Password" title="" [(ngModel)]="user.password" required="true" (focus)="display_rules(1)" (focusout)="display_rules(0)"/>
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput placeholder="Roll Number">
+          <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="user.confirm" required="true"/>
         </mat-form-field><br>
         <mat-form-field class="detail-input">
-          <input matInput placeholder="Email">
-        </mat-form-field><br><br>
+          <input matInput placeholder="Roll Number" [(ngModel)]="user.roll" required="true"/>
+        </mat-form-field><br>
+        <div fxLayout fxLayoutAlign="flex-end">
+          <small>*Required Fields</small>
+        </div>
+        <br>
       </div>
-      <button mat-flat-button color="primary">Register</button>
+      <button mat-flat-button color="primary" (click)="check_presence()">Register</button>
   </div>
 </div>
