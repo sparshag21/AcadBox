@@ -4,6 +4,8 @@ import { auth } from "firebase/app";
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "@angular/fire/firestore";
 import { User } from "../user";
 import { Observable } from 'rxjs';
+import { UserDataService } from "../user-data.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,10 +14,20 @@ import { Observable } from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
 
+  userId : string;
+
   private userCollection : AngularFirestoreCollection<User>;
 
-  constructor(public afAuth : AngularFireAuth, private afs : AngularFirestore) { 
+  constructor(public afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router) { 
     this.userCollection = afs.collection<User>("users");
+    this.afAuth.auth.onAuthStateChanged( (user) => {
+      if(user){
+        this.userId = user.uid;
+      }
+      else{
+        this.userId = "";
+      }
+    });
   }
 
   user = {
@@ -42,14 +54,16 @@ export class RegisterComponent implements OnInit {
           const new_user : User = {
             name : this.user.name,
             username : this.user.username,
-            roll : this.user.roll
+            roll : this.user.roll,
+            courses : []
           }
-          this.userCollection.add(new_user);
+          this.userCollection.doc(this.userId).set(new_user);
+          this.router.navigate(["/dashboard"]);
         }
       )
       .catch(
         (error) => {
-          console.log(error);    
+          this.message.push(error);
         }
       )
   }
