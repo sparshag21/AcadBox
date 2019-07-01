@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { auth } from "firebase/app";
-import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "@angular/fire/firestore";
 import { User } from "../user";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,11 @@ import { User } from "../user";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public afAuth : AngularFireAuth, private afs : AngularFirestore) { }
+  private userCollection : AngularFirestoreCollection<User>;
+
+  constructor(public afAuth : AngularFireAuth, private afs : AngularFirestore) { 
+    this.userCollection = afs.collection<User>("users");
+  }
 
   user = {
     name: "",
@@ -34,6 +39,12 @@ export class RegisterComponent implements OnInit {
       .then(
         ()=>{
           console.log("registration complete");
+          const new_user : User = {
+            name : this.user.name,
+            username : this.user.username,
+            roll : this.user.roll
+          }
+          this.userCollection.add(new_user);
         }
       )
       .catch(

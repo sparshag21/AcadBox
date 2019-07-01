@@ -1,5 +1,5 @@
 export class User{
-    name : String;
-    username : String;
-    roll : String;
+    name : string;
+    username : string;
+    roll : string;
 }
