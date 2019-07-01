@@ -24,10 +24,11 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterComponent } from './register/register.component';
 import { ShowFilesComponent } from './show-files/show-files.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableFilterModule } from 'mat-table-filter';
 import { LoginSinglePageComponent } from './login-single-page/login-single-page.component';
 import { AlertBoxComponent } from './alert-box/alert-box.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AlertBoxComponent } from './alert-box/alert-box.component';
     ShowFilesComponent,
     DashboardComponent,
     LoginSinglePageComponent,
-    AlertBoxComponent
+    AlertBoxComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
