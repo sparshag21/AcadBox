@@ -42,7 +42,8 @@ export class RegisterComponent implements OnInit {
           const new_user : User = {
             name : this.user.name,
             username : this.user.username,
-            roll : this.user.roll
+            roll : this.user.roll,
+            courses : []
           }
           this.userCollection.add(new_user);
         }
