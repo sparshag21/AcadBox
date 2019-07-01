@@ -11,13 +11,19 @@ import { User } from "./user";
 
 export class UserDataService {
 
+  userAuthObj : any;
+
   private userDocument : AngularFirestoreDocument<User>;
   userData : Observable<User>;
 
   constructor( private afAuth : AngularFireAuth, private afs : AngularFirestore ) {
     afAuth.auth.onAuthStateChanged( (user) => {
       if(user){
-        
+        this.userAuthObj = user;
+        console.log(user.email);
+      }
+      else{
+        this.userAuthObj = "";
       }
     })
   }
