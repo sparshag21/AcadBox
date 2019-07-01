@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FILES } from '../mock-files';
 import { File } from '../file';
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser"; 
 
@@ -11,13 +10,11 @@ import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 export class ShowFilesComponent implements OnInit {
   // title="Show-Files";
   @Input() files : File;
-  iurl : SafeResourceUrl;
+  iurl : any;
   constructor(public sanitizer : DomSanitizer) {
+    this.iurl = this.sanitizer.bypassSecurityTrustResourceUrl(this.files.link);
    }
 
-  ngOnInit(){
-    console.log(this.files.link);
-    // this.iurl = this.sanitizer.bypassSecurityTrustResourceUrl(this.files.link)
-  }
+  ngOnInit(){}
 
 }
