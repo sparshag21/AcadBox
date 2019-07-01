@@ -1,0 +1,15 @@
+.container-red{
+    width : 100%;
+    padding: 4px;
+    background-color: rgba(255, 0, 0, 0.2);
+    color: red;
+    margin-bottom: 2px;
+}
+
+.container-green{
+    width : 100%;
+    padding: 4px;
+    background-color: rgba(0, 255, 0, 0.2);
+    color: green;
+    margin-bottom: 2px;
+}

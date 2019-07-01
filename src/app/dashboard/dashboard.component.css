@@ -1,0 +1,15 @@
+table {
+  width: 80%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 80%;
+}
+
+.content {
+  padding: 4%;
+  height: 80%;
+  overflow: auto;
+
+}

@@ -1,0 +1,55 @@
+<body>
+  <!-- <div fxFlex="40" align="center center" fxLayout="column" [fxFlexOffset]="2">
+<mat-form-field>
+  <mat-label>Course Type</mat-label>
+  <mat-select  aria-placeholder="Course Type"  (selectionChange)="applyFilter($event.value)">
+    <mat-option value="">All</mat-option>
+   <mat-option value="IC" >IC</mat-option>
+   <mat-option value="ESO/SO" >ESO/SO</mat-option>
+   <mat-option value="HSS" >HSS</mat-option>
+   <mat-option value="DC" >Departmental Courses</mat-option>
+  </mat-select> -->
+  <!-- <mat-select [formControl]="types" multiple (selectionChange)="applyFilter($event.value)">
+    <mat-option *ngFor="let type of typeList" [value]="type">{{type}}</mat-option>
+  </mat-select> -->
+  <!-- </mat-form-field> -->
+  <!-- </div> -->
+  <div fxLayout="column">
+    <div fxLayoutAlign="center center" class="content">
+      <!-- <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Course Name">
+  </mat-form-field> -->
+
+      <table mat-table [dataSource]="dataSource" #myTable class="mat-elevation-z8" [matTableFilter]="myTable"
+        [exampleEntity]="filterEntity" [filterType]="filterType">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Name" [(ngModel)]="filterEntity.name">
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Type" [(ngModel)]="filterEntity.type">
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dept">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Dept" [(ngModel)]="filterEntity.dept">
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.dept}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</body>
