@@ -1,6 +1,6 @@
 <mat-card>
   <div fxLayout="column" fxLayoutAlign="center center">
-    <iframe src="" style="height: 300px; width : 30%;" id="display_frame">
+    <iframe [src]="iurl" style="height: 300px; width : 30%;" id="display_frame">
     </iframe>
       Uploaded By : &nbsp;{{files.uploader}}<br>
       Rating : &nbsp;{{files.rating}}<br>
