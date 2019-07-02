@@ -41,7 +41,7 @@ import { AboutComponent } from './about/about.component';
     RegisterComponent,
     ShowFilesComponent,
     LoginSinglePageComponent,
-    UploadfileComponent
+    UploadfileComponent,
     DashboardComponent,
     LoginSinglePageComponent,
     AlertBoxComponent,
