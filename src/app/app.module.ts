@@ -25,9 +25,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableFilterModule } from 'mat-table-filter';
 import { LoginSinglePageComponent } from './login-single-page/login-single-page.component';
+
+import { UploadfileComponent } from './uploadfile/uploadfile.component';
 import { AlertBoxComponent } from './alert-box/alert-box.component';
 import { AboutComponent } from './about/about.component';
-
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { AboutComponent } from './about/about.component';
     LoginpageComponent,
     RegisterComponent,
     ShowFilesComponent,
+    LoginSinglePageComponent,
+    UploadfileComponent
     DashboardComponent,
     LoginSinglePageComponent,
     AlertBoxComponent,
