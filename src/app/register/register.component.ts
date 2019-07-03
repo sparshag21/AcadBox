@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from "firebase/app";
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "@angular/fire/firestore";
-import { User } from "../user";
-import { Observable } from 'rxjs';
-import { UserDataService } from "../user-data.service";
 import { Router } from '@angular/router';
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: 'app-register',
@@ -14,43 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  private userCollection : AngularFirestoreCollection<User>;
-
-  new_user : User = {
-    name : "",
-    username : "",
-    uid : "",
-    roll : "",
-    email : "",
-    courses : []
-  };
-  new = 0;
-
-  constructor(public afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router, private userDataService : UserDataService) { 
-    this.userCollection = afs.collection<User>("users");
-    this.afAuth.auth.onAuthStateChanged( (user) => {
-      if(user){
-        this.new_user.uid = user.uid;
-        this.new_user.email = user.email;
-        if(this.new){
-          this.userCollection.doc(this.new_user.uid).set(this.new_user);
-          this.userDataService.fetchCurrentUserData(this.new_user.uid);
-          this.new=0;
-          this.router.navigate(["/dashboard"]);
-        }
-      }
-      else{
-        this.new_user = {
-          name : "",
-          username : "",
-          email : "",
-          uid : "",
-          roll : "",
-          courses : []
-        };
-      }
-    });
-  }
+  constructor(private router : Router, public authService : AuthService) {}
 
   user = {
     name: "",
@@ -61,34 +20,21 @@ export class RegisterComponent implements OnInit {
     email : ""
   }
 
-  message : String[] = [];
+  message : any = [];
 
-  notify : String[] = [];
+  notify : string[] = [];
 
   ngOnInit() {
   }
 
   make_user(){
-    this.afAuth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
-      .then(
-        ()=>{
-          console.log("registration complete");
-          this.new_user = {
-            name : this.user.name,
-            username : this.user.username,
-            roll : this.user.roll,
-            courses : [],
-            email : "",
-            uid : ""
-          }
-          this.new = 1;
-        }
-      )
-      .catch(
-        (error) => {
-          this.message.push(error);
-        }
-      )
+    this.authService.register(this.user.email, this.user.password, this.user.name, this.user.username, this.user.roll)
+      .subscribe( (error) => {
+        this.message.push(error);
+      })    
+    if(this.message.length==0){
+      this.router.navigate(["/dashboard"]);
+    }   
   }
 
   display_rules(event){
