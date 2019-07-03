@@ -14,18 +14,40 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  userId : string;
-
   private userCollection : AngularFirestoreCollection<User>;
 
-  constructor(public afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router) { 
+  new_user : User = {
+    name : "",
+    username : "",
+    uid : "",
+    roll : "",
+    email : "",
+    courses : []
+  };
+  new = 0;
+
+  constructor(public afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router, private userDataService : UserDataService) { 
     this.userCollection = afs.collection<User>("users");
     this.afAuth.auth.onAuthStateChanged( (user) => {
       if(user){
-        this.userId = user.uid;
+        this.new_user.uid = user.uid;
+        this.new_user.email = user.email;
+        if(this.new){
+          this.userCollection.doc(this.new_user.uid).set(this.new_user);
+          this.userDataService.fetchCurrentUserData(this.new_user.uid);
+          this.new=0;
+          this.router.navigate(["/dashboard"]);
+        }
       }
       else{
-        this.userId = "";
+        this.new_user = {
+          name : "",
+          username : "",
+          email : "",
+          uid : "",
+          roll : "",
+          courses : []
+        };
       }
     });
   }
@@ -51,14 +73,15 @@ export class RegisterComponent implements OnInit {
       .then(
         ()=>{
           console.log("registration complete");
-          const new_user : User = {
+          this.new_user = {
             name : this.user.name,
             username : this.user.username,
             roll : this.user.roll,
-            courses : []
+            courses : [],
+            email : "",
+            uid : ""
           }
-          this.userCollection.doc(this.userId).set(new_user);
-          this.router.navigate(["/dashboard"]);
+          this.new = 1;
         }
       )
       .catch(
