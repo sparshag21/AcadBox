@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
-import { auth } from "firebase/app";
 import { User } from "./user"; 
 
 @Injectable({
@@ -10,17 +9,18 @@ import { User } from "./user";
 
 export class UserDataService {
 
-  private userDocument : AngularFirestoreDocument<User>;
-  userData : Observable<User>;
+  userDocument : AngularFirestoreDocument<User>;
 
-  constructor( private afs : AngularFirestore ) { }
+  currentUserData : Observable<User>;
 
-  fetchCurrentUserData(uid : string){
-    localStorage.clear();
+  constructor( private afs : AngularFirestore ) {}
+
+  fetchUserData(uid : string) {
     this.userDocument = this.afs.doc("users/" + uid);
-    this.userDocument.valueChanges()
-      .subscribe( (user) => {
-        localStorage.setItem(uid, JSON.stringify(user));
-      })
+    this.currentUserData = this.userDocument.valueChanges();
+  }
+
+  getUserData() : Observable<any>{
+    return this.currentUserData;
   }
 }

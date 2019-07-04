@@ -3,6 +3,6 @@ export class User{
     username : string;
     roll : string;
     courses : string[];
+    email : string;
     uid : string;
-    email :string
 }
