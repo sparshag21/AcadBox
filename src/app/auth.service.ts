@@ -16,57 +16,30 @@ export class AuthService {
 
   new_user : User;
 
-  currentUser = {
-    email : "",
-    uid : "",
-    new : 0
-  }
-
-  error_messages = [];
-
   constructor(public afAuth : AngularFireAuth, public afs : AngularFirestore, public router : Router) {
     this.usersCollection = afs.collection<User>("users");
-    afAuth.auth.onAuthStateChanged( (user) => {
-      if(user){
-        this.currentUser = {
-          email : user.email,
-          uid : user.uid,
-          new : this.currentUser.new
-        }
-        if(this.currentUser.new){
-          this.makeUser();
-        }
+  }
 
-      }
-      else{
-        this.currentUser = {
-          email : "",
-          uid : "",
-          new : 0
-        }
-      }
-    })
-   }
-
-   register(email : string, password : string, name : string, username : string, roll : string) : Observable<any[]>{
-     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then( () => {
-        this.currentUser.new=1;
+  register(email : string, password : string, name : string, username : string, roll : string){
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then( (user) => {
         this.new_user = {
           name : name,
           username : username,
           roll : roll,
-          courses : []
+          courses : [],
+          email : user.user.email,
+          uid : user.user.uid
         }
+        this.makeUser();
       })
       .catch( (error) => {
-        this.error_messages.push(error.message);
+        alert(error.message);
       })
-      return of(this.error_messages);
    }
 
    makeUser(){
-    const id = this.currentUser.uid;
+    const id = this.new_user.uid;
     this.usersCollection.doc(id).set(this.new_user);
     this.router.navigate(["/dashboard"]);
    }

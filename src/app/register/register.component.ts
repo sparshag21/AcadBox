@@ -28,13 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   make_user(){
-    this.authService.register(this.user.email, this.user.password, this.user.name, this.user.username, this.user.roll)
-      .subscribe( (error) => {
-        this.message.push(error);
-      })    
-    if(this.message.length==0){
-      this.router.navigate(["/dashboard"]);
-    }   
+    this.authService.register(this.user.email, this.user.password, this.user.name, this.user.username, this.user.roll);   
   }
 
   display_rules(event){
