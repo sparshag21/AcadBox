@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
+import { LoginSinglePageComponent } from './login-single-page/login-single-page.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import {UploadfileComponent } from "./uploadfile/uploadfile.component";
@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'login', component: LoginpageComponent },
+  { path: 'login', component: LoginSinglePageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'upload', component: UploadfileComponent}

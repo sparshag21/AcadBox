@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-single-page',
@@ -7,9 +9,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginSinglePageComponent implements OnInit {
 
-  constructor() { }
+  user = {
+    email : "",
+    password : ""
+  }
+
+  messages = [];
+
+  constructor(private afAuth : AngularFireAuth, private router : Router) { }
 
   ngOnInit() {
+  }
+
+  signInUser(){
+    this.afAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
+      .then( () => {
+        this.router.navigate(["/dashboard"]);
+      })
+      .catch( (error) => {
+        this.messages.push(error.message);
+      })
+  }
+
+  checkRequired(){
+    this.messages = [];
+    if(this.user.email=="" || this.user.password==""){
+      this.messages.push("All fields are required");
+    }
+    else{
+      this.checkCredentials();
+    }
+  }
+
+  checkCredentials(){
+    let flag = 0;
+    var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(reg.test(this.user.email) == false){
+      flag=1;
+      this.messages.push("E-Mail format is wrong");
+    }
+
+    if(!flag){
+      this.signInUser();
+    }
   }
 
 }
