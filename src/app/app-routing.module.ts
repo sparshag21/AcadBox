@@ -11,11 +11,11 @@ import {UploadfileComponent } from "./uploadfile/uploadfile.component";
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:uid', component: ProfileComponent },
   { path: 'login', component: LoginSinglePageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'upload', component: UploadfileComponent}
+  { path: 'upload:uid', component: UploadfileComponent}
 ];
 
 @NgModule({

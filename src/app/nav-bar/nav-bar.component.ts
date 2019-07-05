@@ -64,4 +64,21 @@ export class NavBarComponent {
     this.router.navigate(["/login"]);
   }
 
+  profile(){
+    if(this.uid=="guest"){
+      alert("You must be signed in to access this feature");
+    }
+    else{
+      this.router.navigate(["/profile", this.uid]);
+    }
+  }
+
+  upload(){
+    if(this.uid=="guest"){
+      alert("You must be signed in to access this feature");
+    }
+    else{
+      this.router.navigate(["/upload", this.uid]);
+    }
+  }
 }

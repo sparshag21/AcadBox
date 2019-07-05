@@ -29,6 +29,7 @@ import { LoginSinglePageComponent } from './login-single-page/login-single-page.
 import { UploadfileComponent } from './uploadfile/uploadfile.component';
 import { AlertBoxComponent } from './alert-box/alert-box.component';
 import { AboutComponent } from './about/about.component';
+import { AddCourseComponent } from './add-course/add-course.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AboutComponent } from './about/about.component';
     DashboardComponent,
     LoginSinglePageComponent,
     AlertBoxComponent,
-    AboutComponent
+    AboutComponent,
+    AddCourseComponent
   ],
   imports: [
     BrowserModule,
