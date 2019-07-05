@@ -11,7 +11,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ProfileComponent } from './profile/profile.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatSelectModule, MatOptionModule, MatTable, MatTableModule, MatInputModule, MatCell, MatTableDataSource } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatSelectModule, MatOptionModule, MatTable, MatTableModule, MatInputModule, MatCell, MatTableDataSource, MatAutocompleteModule } from '@angular/material';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserCourseListComponent } from './user-course-list/user-course-list.component';
 import { AngularFireModule } from "@angular/fire";
@@ -71,7 +71,8 @@ import { AddCourseComponent } from './add-course/add-course.component';
     ReactiveFormsModule,
     MatTableFilterModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

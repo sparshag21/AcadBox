@@ -10,8 +10,8 @@ import { User } from "../user";
 export class UserCourseListComponent implements OnInit {
 
   userCollection : AngularFirestoreCollection<User>;
-
   @Input() user : User;
+  uploader=0;
 
   constructor(private afs : AngularFirestore) { 
     this.userCollection = afs.collection("/users");
@@ -26,4 +26,13 @@ export class UserCourseListComponent implements OnInit {
     this.userCollection.doc(this.user.uid).set(this.user);
   }
 
+  enableUploader(){
+    this.uploader = 1;
+  }
+
+  disableUploader(event){
+    if(event){
+      this.uploader=0;
+    }
+  }
 }

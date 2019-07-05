@@ -1,0 +1,31 @@
+.container{
+    height :100%;
+}
+
+.sub-container{
+    width : 60%;
+    border : 1px solid black;
+    padding-top : 20px;
+    padding-bottom : 20px;
+}
+
+button{
+    margin : 10px;
+    width : 30%;
+}
+
+#input-text{
+    width : 50%;
+}
+
+@media (max-width : 600px){
+    .sub-container{
+        width : 80%;
+    }
+    button{
+        width : 40%;
+    }
+    #input-text{
+        width: 70%;
+    }
+}
