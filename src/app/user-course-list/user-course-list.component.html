@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutAlign="center center" class="container">
+<div fxLayout="column" fxLayoutAlign="center center" class="container" *ngIf="user">
   <div fxLayout="row" class="header">
     <h1 fxFlex="60">My Courses</h1>
     <div fxFlex=40 fxLayoutAlign="center center" class="add-course">
@@ -7,8 +7,8 @@
   </div>
   <div>
     <table>
-      <tr *ngFor="let course of courseList">
-        <td>{{course.name}} <button mat-button color="warn" class="del-button">Remove</button></td>
+      <tr *ngFor="let course of user.courses">
+        <td>{{course}} <button mat-button color="warn" class="del-button" (click)="removeCourse(course)">Remove</button></td>
       </tr>
     </table>
   </div>

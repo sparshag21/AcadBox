@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore"; 
+import { User } from "../user";
 
 @Component({
   selector: 'app-user-course-list',
@@ -7,11 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCourseListComponent implements OnInit {
 
-  courseList=[];
+  userCollection : AngularFirestoreCollection<User>;
 
-  constructor() { }
+  @Input() user : User;
 
-  ngOnInit() {
+  constructor(private afs : AngularFirestore) { 
+    this.userCollection = afs.collection("/users");
+  }
+
+  ngOnInit() {}
+
+  removeCourse(course : string){
+    this.user.courses = this.user.courses.filter( (value, index, arr) => {
+      return (value==course ? "" : value);
+    })
+    this.userCollection.doc(this.user.uid).set(this.user);
   }
 
 }

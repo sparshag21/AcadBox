@@ -7,10 +7,10 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#">Course Material</a>
-      <a mat-list-item href="#">{{this.uid!="guest" ? "Dashboard" : "About Us"}}</a>
-      <a mat-list-item href="#">Upload Material</a>
-      <a mat-list-item href="#" *ngIf="uid!='guest'">{{user.username}}</a>
-      <a mat-list-item href="#" (click)="this.uid!='guest' ? logout() : login()">{{this.uid!="guest" ? "Logout" : "Login"}}</a>
+      <a mat-list-item href="#">{{uid!="guest" ? "Dashboard" : "About Us"}}</a>
+      <a mat-list-item (click)="upload()">Upload Material</a>
+      <a mat-list-item (click)="profile()">{{user.username}}</a>
+      <a mat-list-item (click)="uid!='guest' ? logout() : login()">{{uid!="guest" ? "Logout" : "Login"}}</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -26,10 +26,10 @@
       <span>AcadBox</span>
       <button routerLink="/dashboard" mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}">Course Material</button>
       <span class="spacer"></span>
-      <button routerLink="/about" mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}">{{this.uid!="guest" ? "Dashboard" : "About Us"}}</button>
-      <button mat-flat-button color="accent" [ngClass]="{'hidden' : (isHandset$ | async) === true}">Upload Material</button>
-      <button routerLink="/profile" mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}">{{user.username}}</button>
-      <button mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="this.uid!='guest' ? logout() : login()">{{this.uid!="guest" ? "Logout" : "Login"}}</button>
+      <button routerLink="/about" mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}">{{uid!="guest" ? "Dashboard" : "About Us"}}</button>
+      <button mat-flat-button color="accent" [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="upload()">Upload Material</button>
+      <button mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="profile()">{{user.username}}</button>
+      <button mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="uid!='guest' ? logout() : login()">{{uid!="guest" ? "Logout" : "Login"}}</button>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

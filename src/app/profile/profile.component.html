@@ -1,10 +1,10 @@
-<div fxLayout fxLayout.lt-lg="column" class="main-container">
-    <div fxFlex=50 class="container">
-        <app-user-details></app-user-details>
+<div fxLayout fxLayout.lt-lg="column" class="main-container" *ngIf="userData">
+    <div fxFlex=50 fxFlex.lt-lg=50 fxFlex.lt-md=60 fxFlex.lt-sm=100 class="container">
+        <app-user-details [user]="userData"></app-user-details>
     </div>
     <div class="vr" [fxHide.lt-lg]="true">&nbsp;</div>
     <div [fxHide.gt-sm]="true">&nbsp;</div>
-    <div fxFlex=50 class="container">
-        <app-user-course-list></app-user-course-list>
+    <div fxFlex=50 fxFlex.lt-lg=50 fxFlex.lt-md=60 fxFlex.lt-sm=100 class="container">
+        <app-user-course-list [user]="userData"></app-user-course-list>
     </div>
 </div>
