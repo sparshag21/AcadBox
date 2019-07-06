@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -49,7 +50,7 @@ export class DashboardComponent implements OnInit {
   types = new FormControl();
   typeList: string[] = ['IC','ESO/SO','HSS','Departmental Course'];
   
-  constructor() { }
+  constructor(private Router: Router) { }
 
   ngOnInit() {
 
