@@ -30,6 +30,8 @@ import { UploadfileComponent } from './uploadfile/uploadfile.component';
 import { AlertBoxComponent } from './alert-box/alert-box.component';
 import { AboutComponent } from './about/about.component';
 import { AddCourseComponent } from './add-course/add-course.component';
+import { UpdateDetailsComponent } from './update-details/update-details.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { AddCourseComponent } from './add-course/add-course.component';
     LoginSinglePageComponent,
     AlertBoxComponent,
     AboutComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    UpdateDetailsComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

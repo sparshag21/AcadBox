@@ -17,6 +17,9 @@ export class ProfileComponent implements OnInit {
   sub : any;
   uid : string;
 
+  changeDetails : number = 0;
+  changePassword : number = 0;
+
   constructor(private afs : AngularFirestore, private router : ActivatedRoute) { }
 
   ngOnInit() {
@@ -27,5 +30,23 @@ export class ProfileComponent implements OnInit {
     this.userDocument.valueChanges().subscribe( (user) => {
       this.userData = user;
     })
+  }
+
+  toggleChangeDetails(event){
+    if(event.enable){
+      this.changeDetails = 1;
+    }
+    else{
+      this.changeDetails = 0;
+    }
+  }
+
+  toggleChangePassword(event){
+    if(event.disable){
+      this.changePassword=0;
+    }
+    else{
+      this.changePassword=1;
+    }
   }
 }
