@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { User } from '../user';
 
 @Component({
@@ -9,10 +9,20 @@ import { User } from '../user';
 export class UserDetailsComponent implements OnInit {
 
   @Input() user : User;
+  @Output() detailsUp = new EventEmitter<{enable : number}>();
+  @Output() passwordUp = new EventEmitter<{disable : number}>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  updateDetails(){
+    this.detailsUp.emit({enable : 1});
+  }
+
+  changePassword(){
+    this.passwordUp.emit({disable : 0});
   }
 
 }
