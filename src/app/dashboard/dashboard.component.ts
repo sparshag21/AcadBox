@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatTableFilter } from 'mat-table-filter';
+
 
 export class Course{
   name: string;
@@ -49,12 +51,16 @@ export class DashboardComponent implements OnInit {
   types = new FormControl();
   typeList: string[] = ['IC','ESO/SO','HSS','Departmental Course'];
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
     this.filterEntity = new Course();
     this.filterType = MatTableFilter.ANYWHERE;
+  }
+
+  goToCourse(){
+    this.router.navigate(["/login"]);
   }
 
 }
