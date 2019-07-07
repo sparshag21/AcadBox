@@ -40,7 +40,8 @@ export class AddCourseComponent implements OnInit {
   }
 
   add(){
-    if(this.user.courses.indexOf(this.filterControl.value) == -1){
+    if(this.user.courses.indexOf(this.filterControl.value) == -1 && this.filterControl.value!=null){
+      console.log(this.filterControl.value);
       this.user.courses.push(this.filterControl.value);
       this.userCollection.doc(this.user.uid).set(this.user);
     }

@@ -30,7 +30,12 @@ import { UploadfileComponent } from './uploadfile/uploadfile.component';
 import { AlertBoxComponent } from './alert-box/alert-box.component';
 import { AboutComponent } from './about/about.component';
 import { AddCourseComponent } from './add-course/add-course.component';
+<<<<<<< HEAD
 import { CoursewiseMaterialComponent } from './coursewise-material/coursewise-material.component';
+=======
+import { UpdateDetailsComponent } from './update-details/update-details.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+>>>>>>> 9ceff4be5027c6598b134915c51ee2dae85d5046
 
 @NgModule({
   declarations: [
@@ -49,7 +54,9 @@ import { CoursewiseMaterialComponent } from './coursewise-material/coursewise-ma
     AlertBoxComponent,
     AboutComponent,
     AddCourseComponent,
-    CoursewiseMaterialComponent
+    CoursewiseMaterialComponent,
+    UpdateDetailsComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,14 @@
-<p>
-  coursewise-material works!
-</p>
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
+  <div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button>new</button>
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button>new</button>
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button>new</button>
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button>new</button>
+  </div>
+</div>
+
+<mat-menu #menu1="matMenu">
+  <button mat-menu-item>push me</button>
+</mat-menu>
+
+<button [matMenuTriggerFor]="menu1">menu</button>
