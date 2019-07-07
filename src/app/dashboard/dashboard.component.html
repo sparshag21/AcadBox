@@ -14,12 +14,12 @@
   </mat-select> -->
   <!-- </mat-form-field> -->
   <!-- </div> -->
-  <div fxLayout="column">
-    <div fxLayoutAlign="center center" class="content">
-      <!-- <mat-form-field>
+
+  <!-- <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Course Name">
   </mat-form-field> -->
-
+  <div fxLayout="column">
+    <div fxLayoutAlign="center center" class="content">
       <table mat-table [dataSource]="dataSource" #myTable class="mat-elevation-z8" [matTableFilter]="myTable"
         [exampleEntity]="filterEntity" [filterType]="filterType">
         <ng-container matColumnDef="name">

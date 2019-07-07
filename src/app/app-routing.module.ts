@@ -34,11 +34,6 @@ const routes: Routes = [{
     redirectTo: '/login',
     pathMatch: 'full'
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '/login',
-  //   pathMatch: 'full'
-  // },
   {
     path: 'dashboard',
     component: DashboardComponent
@@ -64,7 +59,7 @@ const routes: Routes = [{
     component: UploadfileComponent
   },
   {
-    path: 'coursematerial',
+    path: 'coursewise-material',
     component: CoursewiseMaterialComponent
   },
 ];

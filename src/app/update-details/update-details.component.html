@@ -21,8 +21,8 @@
       <input type="text" matInput placeholder="Email" formControlName="email"/>
       <mat-error *ngIf="profileForm.get('email').invalid">{{getEmailErrors()}}</mat-error>
     </mat-form-field><br>
-    <button mat-flat-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
     </form>
-    <button mat-flat-button color="primary" (click)="disableChanges()">Back</button>
+    <button mat-raised-button color="primary" (click)="disableChanges()">Back</button>
   </div>
 </div>
