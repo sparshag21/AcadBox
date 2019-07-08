@@ -24,8 +24,10 @@
       </mat-card>
     </div>
 
-    <div fxLayout="column" fxLayoutGap="20px"*ngFor="let file of files">
-      <app-show-files [files]='file'></app-show-files>
+    <div fxLayout="column" fxLayoutGap="20px"*ngFor="let item of item$ | async">
+      <app-show-files [files]='item'></app-show-files>
     </div>
   </div>
 </div>
+
+<ul *ngFor="let item of item$ | async"><li>{{item.link}}</li></ul>
