@@ -1,48 +1,52 @@
 <body>
   <div fxLayout="row" fxLayoutAlign="center center" id="container">
     <div fxLayout="column" fxLayoutAlign="center center" id="content-container">
-      <h1>Upload File</h1>
-      <div id="text-container">
-        <mat-form-field>
-          <mat-label>Select Course</mat-label>
-          <select matNativeControl required value = "">
-            <!-- <option>Select Course</option> -->
-            <option>ESC101A</option>
-            <option>CHM101A</option>
-            <option>MTH101A</option>
-            <option>PHY103A</option>
-            <option>PSY151A</option>
-            <option>ECO101A</option>
-            <option>AE201A</option>
-            <option>CE211A</option>
-            <option>CS201</option>
-            <option>ME22A</option>
-          </select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Type of Document</mat-label>
-          <select matNativeControl required value="">
-            <option>Book</option>
-            <option>End-Sem Exam</option>
-            <option>Mid-sem Exam</option>
-            <option>Quiz</option>
-            <option>Lecture Note</option>
-            <option>Assignment</option>
-            <option>Other</option>
-          </select>
-        </mat-form-field>
+      <form (ngSubmit)="postfile()">
+        <h1>Upload File</h1>
+        <div id="text-container">
+          <mat-form-field>
+            <mat-label>Select Course</mat-label>
+            <select matNativeControl required value="" [(ngModel)]="currcourse" name="first">
+              <option>CHM101A</option>
+              <option>CHM102A</option>
+              <option>ENG124A</option>
+              <option>ESC101A</option>
+              <option>LIF101A</option>
+              <option>MTH101A</option>
+              <option>MTH102A</option>
+              <option>PHY101A</option>
+              <option>PHY102A</option>
+              <option>PHY103A</option>
+              <option>PSY152A</option>
+              <option>TA101A</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Type of Document</mat-label>
+            <select matNativeControl required value="" [(ngModel)]="doctype" name="first">
+              <option>assignment</option>
+              <option>books</option>
+              <option>endsem</option>
+              <option>lecture</option>
+              <option>midsem</option>
+              <option>notes</option>
+              <option>other</option>
+              <option>quiz</option>
+            </select>
+          </mat-form-field>
 
-        <mat-form-field class="detail-input">
-          <input matInput placeholder="Google Drive Link" class="placeholder">
-        </mat-form-field><br>
-        <mat-form-field class="detail-input">
-          <input matInput placeholder="File Name*" class="placeholder">
-        </mat-form-field><br><br>
-        <div fxLayout fxLayoutAlign="flex-end">
-          <small>*Please Select A Name which best describes it</small>
+          <mat-form-field class="detail-input">
+            <input matInput placeholder="Google Drive Link" class="placeholder" [(ngModel)]="drivelink" name="first">
+          </mat-form-field><br>
+          <mat-form-field class="detail-input">
+            <input matInput placeholder="File Name*" class="placeholder" [(ngModel)]="fileName" name="first">
+          </mat-form-field><br><br>
+          <div fxLayout fxLayoutAlign="flex-end">
+            <small>*Please Select A Name which best describes it</small>
+          </div>
         </div>
-      </div>
-      <button mat-flat-button color="primary">Upload</button>
+        <button mat-raised-button color="primary" type="submit">Upload</button>
+      </form>
     </div>
   </div>
 </body>

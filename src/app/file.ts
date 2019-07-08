@@ -1,5 +1,9 @@
 export class File{
     link: string;
-    uploader: string;
+    currcourse: string,
+    doctype: string,
+    username: string,
+    uid: any,
+    description: string,
     rating: number;
 }
