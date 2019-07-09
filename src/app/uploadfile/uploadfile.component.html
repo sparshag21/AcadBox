@@ -1,7 +1,7 @@
 <body>
   <div fxLayout="row" fxLayoutAlign="center center" id="container">
     <div fxLayout="column" fxLayoutAlign="center center" id="content-container">
-      <form (ngSubmit)="postfile()">
+      <form #myform="ngForm" (ngSubmit)="postfile(); myform.reset()">
         <h1>Upload File</h1>
         <div id="text-container">
           <mat-form-field>

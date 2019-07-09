@@ -2,14 +2,14 @@ body {
   padding-top: 40px;
   height: 100%;  
   background-color:  rgb(250, 206, 206);
-  background-image: url("https://s3-us-east-2.amazonaws.com/dsdmedia/wp-content/uploads/2017/02/26221913/study-materials.jpg");
+  background-image: url("../background.jpg");
 }
 #container{
   height: 92%;
 }
 
 #content-container{
-  /* background-color: rgb(233, 255, 231,0.45); */
+  background-color: white;
   padding: 2%;
   padding-top: 2%;
   border: 1px solid black;
