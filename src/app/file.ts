@@ -6,4 +6,7 @@ export class File{
     uid: any;
     description: string;
     rating: number;
+    name: string;
+    uid: string;
+    uploader: {uid: string; username: string};
 }

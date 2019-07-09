@@ -1,0 +1,33 @@
+<div fxLayout="row wrap" fxLayoutGap="30px" class="container">
+  <div fxFlex="1 2 auto" class="sticky">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <button mat-raised-button type="button" (click)="showAssignments()">Assignments</button>
+      <button mat-raised-button type="button" (click)="showBooks()">Books</button>
+      <button mat-raised-button type="button" (click)="showEndsems()">Endsem</button>
+      <button mat-raised-button type="button" (click)="showLectures()">Lectures</button>
+      <button mat-raised-button type="button" (click)="showMidsems()">Midsem</button>
+      <button mat-raised-button type="button" (click)="showNotes()">Notes</button>
+      <button mat-raised-button type="button" (click)="showQuizzes()">Quizzes</button>
+      <button mat-raised-button type="button" (click)="showOther()">Other</button>
+      <button mat-fab color="primary" routerLink="/dashboard">Back</button>
+    </div>
+  </div>
+  <div fxLayout="column wrap" fxFlex="1 1 auto" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <div>
+      <mat-card class="jumbotron">
+        <mat-card-header>
+          <div mat-card-avatar></div>
+          <mat-card-title>{{courseNo}}</mat-card-title>
+          <mat-card-subtitle>This is the list of stuff you can get for this course! Click on one to get started.
+          </mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+
+    <div fxLayout="column" fxLayoutGap="20px"*ngFor="let item of item$ | async">
+      <app-show-files [files]='item'></app-show-files>
+    </div>
+  </div>
+</div>
+
+<!-- <ul *ngFor="let item of item$ | async"><li>{{item.link}}</li></ul> -->

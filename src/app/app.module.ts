@@ -30,6 +30,10 @@ import { UploadfileComponent } from './uploadfile/uploadfile.component';
 import { AlertBoxComponent } from './alert-box/alert-box.component';
 import { AboutComponent } from './about/about.component';
 import { AddCourseComponent } from './add-course/add-course.component';
+import { CoursewiseMaterialComponent } from './coursewise-material/coursewise-material.component';
+import { UpdateDetailsComponent } from './update-details/update-details.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { AddCourseComponent } from './add-course/add-course.component';
     LoginSinglePageComponent,
     AlertBoxComponent,
     AboutComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    CoursewiseMaterialComponent,
+    UpdateDetailsComponent,
+    ChangePasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

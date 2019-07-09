@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { File } from '../file';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-show-files',

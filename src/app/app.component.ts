@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { File } from './file';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +6,4 @@ import { File } from './file';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {}
+export class AppComponent { }
