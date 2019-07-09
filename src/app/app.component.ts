@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { FILES } from './mock-files';
-import { File } from './file';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +6,4 @@ import { File } from './file';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  files = FILES;
-}
+export class AppComponent { }

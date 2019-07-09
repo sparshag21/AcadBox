@@ -16,6 +16,16 @@
   .detail-input{
     width: 100%;
   }
+
+  .sub-fields{
+    width : 100%;
+    text-align: right;
+    font-size : 12px;
+  }
+
+.links{
+  text-decoration: none;
+}
   
   @media (max-width: 900px){
     #content-container{
