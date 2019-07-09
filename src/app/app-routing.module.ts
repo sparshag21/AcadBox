@@ -55,7 +55,7 @@ const routes: Routes = [{
     component: RegisterComponent
   },
   {
-    path: 'upload:uid',
+    path: 'upload',
     component: UploadfileComponent
   },
   {

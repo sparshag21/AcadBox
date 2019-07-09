@@ -1,7 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="container" *ngIf="user">
   <div fxLayout="column" class="sub-container">
     <div *ngFor="let error of errorMessages">
-      <app-alert-box [message]="message" [color]="1"></app-alert-box>
+      <app-alert-box [message]="error" [color]="1"></app-alert-box>
     </div>
     <form [formGroup]="profileForm" (ngSubmit)="updateUser()" fxLayout="column" fxLayoutAlign="center center">
         <h1>Change Details</h1>

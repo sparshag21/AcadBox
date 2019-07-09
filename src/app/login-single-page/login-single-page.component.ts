@@ -16,6 +16,8 @@ export class LoginSinglePageComponent implements OnInit {
 
   messages = [];
 
+  reset=0;
+
   constructor(private afAuth : AngularFireAuth, private router : Router) { }
 
   ngOnInit() {
@@ -52,6 +54,14 @@ export class LoginSinglePageComponent implements OnInit {
     if(!flag){
       this.signInUser();
     }
+  }
+
+  resetPass(){
+    this.reset=1;
+  }
+
+  cancelReset(event :any){
+    this.reset = 0;
   }
 
 }

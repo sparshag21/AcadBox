@@ -78,7 +78,7 @@ export class NavBarComponent {
       alert("You must be signed in to access this feature");
     }
     else{
-      this.router.navigate(["/upload", this.uid]);
+      this.router.navigate(["/upload"]);
     }
   }
 }
