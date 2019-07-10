@@ -35,6 +35,7 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { PersonalPageComponent } from './personal-page/personal-page.component';
+import { CourseRowComponent } from './course-row/course-row.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { PersonalPageComponent } from './personal-page/personal-page.component';
     UpdateDetailsComponent,
     ChangePasswordComponent,
     ResetPasswordComponent,
-    PersonalPageComponent
+    PersonalPageComponent,
+    CourseRowComponent,
   ],
   imports: [
     BrowserModule,

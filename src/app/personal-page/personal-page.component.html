@@ -1,1 +1,5 @@
-<p>{{user}}</p>
+<div fxLayout="column" class="container" *ngIf="user">
+  <div *ngFor="let course of user.courses">
+    <app-course-row [course]="course"></app-course-row>
+  </div>
+</div>

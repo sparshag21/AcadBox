@@ -4,6 +4,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
+mat-card{
+  margin : 10px;
+}
+
 body {
   padding: 20px 80px;
   background: #eee url(https://subtlepatterns.com/patterns/extra_clean_paper.png);
