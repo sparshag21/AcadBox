@@ -27,6 +27,7 @@ import {
 import {
   CoursewiseMaterialComponent
 } from "./coursewise-material/coursewise-material.component";
+import { PersonalPageComponent } from './personal-page/personal-page.component';
 
 
 const routes: Routes = [{
@@ -62,6 +63,10 @@ const routes: Routes = [{
     path: 'coursewise-material',
     component: CoursewiseMaterialComponent
   },
+  {
+    path : 'my-box',
+    component : PersonalPageComponent
+  }
 ];
 
 @NgModule({

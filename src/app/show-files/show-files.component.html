@@ -1,8 +1,10 @@
 <mat-card>
   <div fxLayout="column" fxLayoutAlign="center center">
-    <iframe [src]="iurl" style="height:300px; width : 60%;" id="display_frame">
+    <iframe [src]="iurl" style="height:300px; width : 90%;" id="display_frame">
     </iframe>
-    Uploaded By : &nbsp;{{files.name}}<br>
+    Name : &nbsp;{{files.description}}<br>
+    Description : &nbsp;{{files.doctype+" "+files.year+" "+files.semester}}<br>
+    Uploaded By : &nbsp;{{files.uploader.username}}<br>
     Rating : &nbsp;{{files.rating}}<br>
     <div fXLayoutAlign="center center" [fxFlexOffset]=2 class="container">
       <fieldset class="rating">

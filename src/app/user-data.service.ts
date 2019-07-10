@@ -12,6 +12,7 @@ import { switchMap, first } from 'rxjs/operators';
 export class UserDataService {
 
   courseList = ["MTH101", "ESC101"]
+  typeList = ['Assignment', 'Endsem', 'Midsem', 'Quiz', 'Lecture', 'Other', 'Books', 'Notes']
 
   userDocument$ : Observable<any>;
 
@@ -35,5 +36,9 @@ export class UserDataService {
         }
       })
     )
+  }
+
+  readCourseData(name : string, doctype : string) : Observable<any>{
+    return this.afs.doc<any>("courses/"+name).collection<any>(doctype, ref => ref.orderBy('rating').limit(5)).valueChanges();
   }
 }

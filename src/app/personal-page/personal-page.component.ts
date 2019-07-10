@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from "@angular/fire/auth";
-import {UserDataService} from "../user-data.service";
-import { User } from '../user';
+import { UserDataService } from "../user-data.service";
 
 @Component({
   selector: 'app-personal-page',
@@ -12,13 +10,13 @@ export class PersonalPageComponent implements OnInit {
 
   user : any;
 
-  constructor(private afAuth: AngularFireAuth, private userDataService : UserDataService) {
+  constructor(private userDataService : UserDataService) { 
+    userDataService.userDocument$.subscribe( (user) => {
+      this.user = user;
+    })
   }
 
   ngOnInit() {
-    this.userDataService.userDocument$.subscribe( (user) => {
-      console.log(user);
-    })
   }
 
 }
