@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from "@angular/fire/firestore";
+import { UserDataService } from "../user-data.service";
 import { User } from "../user";
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -11,25 +11,20 @@ import { Observable } from 'rxjs';
 })
 export class ProfileComponent implements OnInit {
 
-  userDocument : AngularFirestoreDocument<User>;
-  userData : User;
+  userData : any;
 
   sub : any;
-  uid : string;
 
   changeDetails : number = 0;
   changePassword : number = 0;
 
-  constructor(private afs : AngularFirestore, private router : ActivatedRoute) { }
-
-  ngOnInit() {
-    this.sub = this.router.params.subscribe( (params) => {
-      this.uid = params["uid"];
-    })
-    this.userDocument = this.afs.doc("users/" + this.uid);
-    this.userDocument.valueChanges().subscribe( (user) => {
+  constructor(private userDataService : UserDataService, private router : ActivatedRoute) {
+    userDataService.userDocument$.subscribe( (user) => {
       this.userData = user;
     })
+   }
+
+  ngOnInit() {
   }
 
   toggleChangeDetails(event){
