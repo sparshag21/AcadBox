@@ -34,6 +34,7 @@ import { CoursewiseMaterialComponent } from './coursewise-material/coursewise-ma
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PersonalPageComponent } from './personal-page/personal-page.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     CoursewiseMaterialComponent,
     UpdateDetailsComponent,
     ChangePasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    PersonalPageComponent
   ],
   imports: [
     BrowserModule,
