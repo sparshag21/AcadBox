@@ -15,7 +15,7 @@
       <a mat-list-item href="#">Course Material</a>
       <a mat-list-item href="#">{{loggedIn ? "My Box" : "About Us"}}</a>
       <a mat-list-item (click)="upload()">Upload Material</a>
-      <a mat-list-item (click)="profile()">{{user.username}}</a>
+      <a mat-list-item (click)="profile()">{{user.username=='Guest' ? 'Profile' : user.username}}</a>
       <a mat-list-item (click)="loggedIn ? logout() : login()">{{loggedIn ? "Logout" : "Login"}}</a>
     </mat-nav-list>
   </mat-sidenav>
