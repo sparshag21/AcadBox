@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 // import { FILES } from '../mock-files';
 import { File } from '../file';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { UserDataService } from '../user-data.service';
 
 @Component({
   selector: 'app-show-files',
@@ -12,7 +13,19 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class ShowFilesComponent implements OnInit {
   @Input() files: File;
   iurl: any;
-  constructor(public sanitizer: DomSanitizer) {
+  max = 5;
+  currentRate = 0;
+  user : any;
+  constructor(public sanitizer: DomSanitizer, private userDataService : UserDataService) {
+    userDataService.userDocument$.subscribe( (user) => {
+      this.user = user;
+      try{
+        this.currentRate = this.files.raters[this.user.uid];
+      }
+      catch{
+        this.currentRate = 0;
+      }
+    })
   }
 
   ngOnInit() {
@@ -21,5 +34,9 @@ export class ShowFilesComponent implements OnInit {
 
   openFull(){
     window.open(this.iurl);
+  }
+
+  updateRating(){
+    this.userDataService.updateRating(this.files, this.currentRate);
   }
 }

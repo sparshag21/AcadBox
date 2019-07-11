@@ -48,12 +48,18 @@ export class UserDataService {
   }
 
   updateRating(file : File, rating : number){
-    if(Object.keys(file.raters).indexOf(this.user.uid)==-1){
+    if(isNaN(rating)){
+      rating = 0;
+      console.log(rating);
+    }
+    if(!file.raters || Object.keys(file.raters).indexOf(this.user.uid)==-1){
       file.raters[this.user.uid]=rating;
       file.rating = (file.rating + rating)/(Object.keys(file.raters).length);
     }
     else{
-      file.rating = (file.rating-file.raters[this.user.uid]+rating)/(Object.keys(file.raters).length);
+      let pastRate = file.rating;
+      let len = (Object.keys(file.raters).length);
+      file.rating = (pastRate*len-file.raters[this.user.uid]+rating)/len;
       file.raters[this.user.uid]=rating;
     }
     this.afs.doc('courses/'+file.course+"/"+file.doctype+"/"+file.uid).update(file);

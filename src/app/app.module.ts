@@ -38,7 +38,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { PersonalPageComponent } from './personal-page/personal-page.component';
 import { CourseRowComponent } from './course-row/course-row.component';
 import { AddFilesComponent } from './add-files/add-files.component';
-
+import {  NgbRatingModule } from "@ng-bootstrap/ng-bootstrap";
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +88,8 @@ import { AddFilesComponent } from './add-files/add-files.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    NgbRatingModule
   ],
   providers: [
     { provide : StorageBucket, useValue : 'gs://acadbox-6a8ee.appspot.com/' }
