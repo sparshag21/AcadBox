@@ -90,6 +90,9 @@ h1 { font-size: 1.5em; margin: 10px; }
  float: right; 
 }
 
+.card {
+  max-width:300px;
+}
 /***** CSS Magic to Highlight Stars on Hover *****/
 
 .rating > input:checked ~ label, /* show gold star when clicked */
