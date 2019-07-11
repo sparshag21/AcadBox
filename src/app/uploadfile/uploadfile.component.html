@@ -1,48 +1,244 @@
 <body>
-  <div fxLayout="row" fxLayoutAlign="center center" id="container">
-    <div fxLayout="column" fxLayoutAlign="center center" id="content-container">
-      <h1>Upload File</h1>
-      <div id="text-container">
-        <mat-form-field>
-          <mat-label>Select Course</mat-label>
-          <select matNativeControl required value = "">
-            <!-- <option>Select Course</option> -->
-            <option>ESC101A</option>
-            <option>CHM101A</option>
-            <option>MTH101A</option>
-            <option>PHY103A</option>
-            <option>PSY151A</option>
-            <option>ECO101A</option>
-            <option>AE201A</option>
-            <option>CE211A</option>
-            <option>CS201</option>
-            <option>ME22A</option>
-          </select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Type of Document</mat-label>
-          <select matNativeControl required value="">
-            <option>Book</option>
-            <option>End-Sem Exam</option>
-            <option>Mid-sem Exam</option>
-            <option>Quiz</option>
-            <option>Lecture Note</option>
-            <option>Assignment</option>
-            <option>Other</option>
-          </select>
-        </mat-form-field>
+  <div id="container">
+    <div id="content-container">
+      <form #myform="ngForm" (ngSubmit)="postfile(); myform.reset()">
+        <h1>Upload File</h1>
+        <div fxLayout="row">
+          <mat-form-field>
+            <mat-label>Select Course</mat-label>
+            <select matNativeControl required value="" [(ngModel)]="currcourse" name="first">
+              <option>ART102</option>
+              <option>CHM101</option>
+              <option>CHM102</option>
+              <option>ECO101</option>
+              <option>ENG124</option>
+              <option>ESC101</option>
+              <option>LIF101</option>
+              <option>MTH101</option>
+              <option>MTH102</option>
+              <option>PHI143</option>
+              <option>PHY101</option>
+              <option>PHY102</option>
+              <option>PHY103</option>
+              <option>PSY152</option>
+              <option>SOC173</option>
+              <option>TA101</option>
+            </select>
+          </mat-form-field> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-        <mat-form-field class="detail-input">
-          <input matInput placeholder="Google Drive Link" class="placeholder">
-        </mat-form-field><br>
-        <mat-form-field class="detail-input">
-          <input matInput placeholder="File Name*" class="placeholder">
-        </mat-form-field><br><br>
-        <div fxLayout fxLayoutAlign="flex-end">
-          <small>*Please Select A Name which best describes it</small>
+          <mat-form-field>
+            <mat-label>Select Year</mat-label>
+            <select matNativeControl required value="" [(ngModel)]="year" name="first">
+              <option>2010-11</option>
+              <option>2011-12</option>
+              <option>2012-13</option>
+              <option>2013-14</option>
+              <option>2014-15</option>
+              <option>2015-16</option>
+              <option>2016-17</option>
+              <option>2017-18</option>
+              <option>2018-19</option>
+              <option>2019-20</option>
+              <option>2020-21</option>
+              <option>2021-22</option>
+            </select>
+          </mat-form-field> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+          <mat-form-field>
+            <mat-label>Select Semester</mat-label>
+            <select matNativeControl required value="" [(ngModel)]="sem" name="first">
+              <option>Odd</option>
+              <option>Even</option>
+              <option>Summer</option>
+            </select>
+          </mat-form-field> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+          <mat-form-field>
+            <mat-label>Type of Document</mat-label>
+            <select matNativeControl required value="" [(ngModel)]="doctype" name="first" (ngModelChange) = action($event)>
+              <option>Quiz</option>
+              <option>Midsem</option>
+              <option>Endsem</option>
+              <option>Assignment</option>
+              <option>Lecture Notes</option>
+              <option>Class Notes</option>
+              <option>Books</option>
+              <option>Other</option>
+            </select>
+          </mat-form-field> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+          <mat-form-field *ngIf="doc == 1">
+            <mat-label>Type</mat-label>
+            <select matNativeControl required value="" [ngModel]="fileName" name="first">
+              <option>Quiz1 Paper</option>
+              <option>Quiz1 Solutions</option>
+              <option>Quiz2 Paper</option>
+              <option>Quiz2 Solutions</option>
+              <option>Quiz3 Paper</option>
+              <option>Quiz3 Solutions</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field *ngIf="doc == 2">
+            <mat-label>Type</mat-label>
+            <select matNativeControl required value="" [ngModel]="fileName" name="first">
+              <option>Question Paper</option>
+              <option>Solutions</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field *ngIf = "doc == 3">
+            <mat-label>Type</mat-label>
+            <select matNativeControl required value="" [ngModel] = "fileName" name="first">
+              <option>Question Paper</option>
+              <option>Solutions</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field *ngIf="doc == 4">
+            <mat-label>Type</mat-label>
+            <select matNativeControl required value="" [ngModel]="fileName" name="first">
+              <option>Assignment 1 Questions</option>
+              <option>Assignment 1 Solutions</option>
+              <option>Assignment 2 Questions</option>
+              <option>Assignment 2 Solutions</option>
+              <option>Assignment 3 Questions</option>
+              <option>Assignment 3 Solutions</option>
+              <option>Assignment 4 Questions</option>
+              <option>Assignment 4 Solutions</option>
+              <option>Assignment 5 Questions</option>
+              <option>Assignment 5 Solutions</option>
+              <option>Assignment 6 Questions</option>
+              <option>Assignment 6 Solutions</option>
+              <option>Assignment 7 Questions</option>
+              <option>Assignment 7 Solutions</option>
+              <option>Assignment 8 Questions</option>
+              <option>Assignment 8 Solutions</option>
+              <option>Assignment 9 Questions</option>
+              <option>Assignment 9 Solutions</option>
+              <option>Assignment 10 Questions</option>
+              <option>Assignment 10 Solutions</option>
+              <option>Assignment 11 Questions</option>
+              <option>Assignment 11 Solutions</option>
+              <option>Assignment 12 Questions</option>
+              <option>Assignment 12 Solutions</option>
+              <option>Assignment 13 Questions</option>
+              <option>Assignment 13 Solutions</option>
+              <option>Assignment 14 Questions</option>
+              <option>Assignment 14 Solutions</option>
+              <option>Assignment 15 Questions</option>
+              <option>Assignment 15 Solutions</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field *ngIf="doc == 5">
+            <mat-label>Type</mat-label>
+            <select matNativeControl required value="" [ngModel]="fileName" name="first">
+              <option>Lecture 1</option>
+              <option>Lecture 2</option>
+              <option>Lecture 3</option>
+              <option>Lecture 4</option>
+              <option>Lecture 5</option>
+              <option>Lecture 6</option>
+              <option>Lecture 7</option>
+              <option>Lecture 8</option>
+              <option>Lecture 9</option>
+              <option>Lecture 10</option>
+              <option>Lecture 11</option>
+              <option>Lecture 12</option>
+              <option>Lecture 13</option>
+              <option>Lecture 14</option>
+              <option>Lecture 15</option>
+              <option>Lecture 16</option>
+              <option>Lecture 17</option>
+              <option>Lecture 18</option>
+              <option>Lecture 19</option>
+              <option>Lecture 20</option>
+              <option>Lecture 21</option>
+              <option>Lecture 22</option>
+              <option>Lecture 23</option>
+              <option>Lecture 24</option>
+              <option>Lecture 25</option>
+              <option>Lecture 26</option>
+              <option>Lecture 27</option>
+              <option>Lecture 28</option>
+              <option>Lecture 29</option>
+              <option>Lecture 30</option>
+              <option>Lecture 31</option>
+              <option>Lecture 32</option>
+              <option>Lecture 33</option>
+              <option>Lecture 34</option>
+              <option>Lecture 35</option>
+              <option>Lecture 36</option>
+              <option>Lecture 37</option>
+              <option>Lecture 38</option>
+              <option>Lecture 39</option>
+              <option>Lecture 40</option>
+              <option>Lecture 41</option>
+              <option>Lecture 42</option>
+              <option>Lecture 43</option>
+              <option>Lecture 44</option>
+              <option>Lecture 45</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field *ngIf="doc == 6">
+            <mat-label>Type</mat-label>
+            <select matNativeControl required value="" [ngModel]="fileName" name="first">
+              <option>Lecture 1</option>
+              <option>Lecture 2</option>
+              <option>Lecture 3</option>
+              <option>Lecture 4</option>
+              <option>Lecture 5</option>
+              <option>Lecture 6</option>
+              <option>Lecture 7</option>
+              <option>Lecture 8</option>
+              <option>Lecture 9</option>
+              <option>Lecture 10</option>
+              <option>Lecture 11</option>
+              <option>Lecture 12</option>
+              <option>Lecture 13</option>
+              <option>Lecture 14</option>
+              <option>Lecture 15</option>
+              <option>Lecture 16</option>
+              <option>Lecture 17</option>
+              <option>Lecture 18</option>
+              <option>Lecture 19</option>
+              <option>Lecture 20</option>
+              <option>Lecture 21</option>
+              <option>Lecture 22</option>
+              <option>Lecture 23</option>
+              <option>Lecture 24</option>
+              <option>Lecture 25</option>
+              <option>Lecture 26</option>
+              <option>Lecture 27</option>
+              <option>Lecture 28</option>
+              <option>Lecture 29</option>
+              <option>Lecture 30</option>
+              <option>Lecture 31</option>
+              <option>Lecture 32</option>
+              <option>Lecture 33</option>
+              <option>Lecture 34</option>
+              <option>Lecture 35</option>
+              <option>Lecture 36</option>
+              <option>Lecture 37</option>
+              <option>Lecture 38</option>
+              <option>Lecture 39</option>
+              <option>Lecture 40</option>
+              <option>Lecture 41</option>
+              <option>Lecture 42</option>
+              <option>Lecture 43</option>
+              <option>Lecture 44</option>
+              <option>Lecture 45</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field class="detail-input" *ngIf="doc === 7">
+            <input matInput placeholder="File Name" class="placeholder" [(ngModel)]="fileName" name="first">
+          </mat-form-field>
+          <mat-form-field class="detail-input" *ngIf = "doc === 8">
+            <input matInput placeholder="File Name" class="placeholder" [(ngModel)]="fileName" name="first">
+          </mat-form-field>
+          
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          <button mat-flat-button color="primary" type="submit">Upload</button>&nbsp;
+          <button mat-raised-button color="red">Delete</button>
         </div>
-      </div>
-      <button mat-flat-button color="primary">Upload</button>
+      </form>
     </div>
   </div>
 </body>
