@@ -5,7 +5,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { File } from '../file';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../user';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 
@@ -32,48 +31,82 @@ export class UploadfileComponent {
   docs: AngularFirestoreDocument<File>;
 
   currcourse: string;
+  year: string;
+  sem: string;
   doctype: string;
   drivelink: string;
   fileName: string;
+  doc: number;
 
-  constructor(private breakpointObserver: BreakpointObserver, private afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     afAuth.auth.onAuthStateChanged((user) => {
       if (user) {
         this.uid = user.uid;
-      }
-      else {
+      } else {
         this.uid = 'guest';
       }
       this.fetchUserData();
     });
   }
+  action(e) {
+    // this.fileName = '';
+    this.doc = 0;
+    if (e === 'Quiz') {
+      this.doc = 1;
+    }
+    if (e === 'Midsem') {
+      this.doc = 2;
+    }
+    if (e === 'Endsem') {
+      this.doc = 3;
+    }
+    if (e === 'Assignment') {
+      this.doc = 4;
+    }
+    if (e === 'Lecture Notes') {
+      this.doc = 5;
+    }
+    if (e === 'Class Notes') {
+      this.doc = 6;
+    }
+    if (e === 'Books') {
+      this.doc = 7;
+    }
+    if (e === 'Other') {
+      this.doc = 8;
+    }
+  }
 
   fetchUserData() {
-    if (this.uid != 'guest') {
+    if (this.uid !== 'guest') {
       this.userDocument = this.afs.doc<User>('users/' + this.uid);
       this.userDocument.valueChanges().subscribe((user) => {
         this.user = user;
-      })
-    }
-    else {
+      });
+    } else {
       this.user.username = 'Guest';
     }
   }
 
   postfile() {
-    this.docs = this.afs.doc<File>('courses/' + this.currcourse);
+    this.docs = this.afs.doc<File>('course/' + this.currcourse);
     this.doccollection = this.docs.collection<File>(this.doctype);
     const newFile: File = {
-      link: this.drivelink,
-      currcourse: this.currcourse,
+      course: this.currcourse,
+      year: this.year,
+      semester: this.sem,
       doctype: this.doctype,
-      username: this.user.username,
-      uid: this.afs.createId(),
+      link: this.drivelink,
+      rating: 0,
       description: this.fileName,
-      rating: 0
+      uid: this.afs.createId(),
+      uploader : {
+        username : this.user.username,
+        uid : this.user.uid
+      }
     };
     // console.log("uploading");
     this.doccollection.doc(newFile.uid).set(newFile);
-    window.alert('Uploaded Successfully');
+    window.alert('Uploaded Successfully\nThanks for your contribution');
   }
 }

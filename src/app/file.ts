@@ -1,12 +1,11 @@
-export class File{
-    link: string;
-    currcourse: string;
+export class File {
+    course: string;
+    year: string;
+    semester: string;
     doctype: string;
-    username: string;
-    uid: any;
-    description: string;
+    link: string;
     rating: number;
-    name: string;
     uid: string;
-    uploader: {uid: string; username: string};
+    description: string;
+    uploader: { uid: string; username: string };
 }
