@@ -62,4 +62,13 @@ export class NavBarComponent {
       this.router.navigate(["/upload"]);
     }
   }
+
+  customPage(){
+    if(this.user.uid=="guest"){
+      this.router.navigate(["/about"]);
+    }
+    else{
+      this.router.navigate(["/my-box"]);
+    }
+  }
 }

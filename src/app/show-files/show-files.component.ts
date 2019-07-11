@@ -18,4 +18,8 @@ export class ShowFilesComponent implements OnInit {
   ngOnInit() {
     this.iurl = this.sanitizer.bypassSecurityTrustResourceUrl(this.files.link);
   }
+
+  openFull(){
+    window.open(this.iurl);
+  }
 }
