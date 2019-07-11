@@ -1,3 +1,4 @@
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import {
   NgModule
 } from '@angular/core';
@@ -33,8 +34,12 @@ import { AddFilesComponent } from './add-files/add-files.component';
 
 const routes: Routes = [{
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/landing-page',
     pathMatch: 'full'
+  },
+  {
+    path: 'landing-page',
+    component: LandingPageComponent
   },
   {
     path: 'dashboard',
