@@ -10,7 +10,7 @@
         </mat-select>
       </mat-form-field>
   </div>
-  <div fxLayout="row">
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
   <div *ngFor="let file of data">
     <app-show-files [files]="file"></app-show-files>
   </div>
