@@ -1,5 +1,5 @@
 table {
-  width: 80%;
+  width: 100%;
 }
 
 .mat-form-field {
@@ -10,6 +10,11 @@ table {
 .content {
   padding: 4%;
   height: 80%;
-  /* overflow: auto; */
+  overflow: auto;
   position: sticky;
+}
+
+.mat-row:hover {
+  background-color: rgb(38, 0, 255);
+  cursor: pointer;
 }
