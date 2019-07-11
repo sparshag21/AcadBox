@@ -1,0 +1,6 @@
+<div fxLayout="column" class="container" *ngIf="user">
+  <h1>Popular Feed. Your Courses. Just for You</h1>
+  <div *ngFor="let course of user.courses">
+    <app-course-row [course]="course"></app-course-row>
+  </div>
+</div>

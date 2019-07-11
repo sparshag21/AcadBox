@@ -27,11 +27,13 @@ import {
 import {
   CoursewiseMaterialComponent
 } from "./coursewise-material/coursewise-material.component";
+import { PersonalPageComponent } from './personal-page/personal-page.component';
+import { AddFilesComponent } from './add-files/add-files.component';
 
 
 const routes: Routes = [{
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
   },
   {
@@ -56,12 +58,16 @@ const routes: Routes = [{
   },
   {
     path: 'upload',
-    component: UploadfileComponent
+    component: AddFilesComponent
   },
   {
     path: 'coursewise-material',
     component: CoursewiseMaterialComponent
   },
+  {
+    path : 'my-box',
+    component : PersonalPageComponent
+  }
 ];
 
 @NgModule({

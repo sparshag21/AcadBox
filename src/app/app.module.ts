@@ -17,6 +17,7 @@ import { UserCourseListComponent } from './user-course-list/user-course-list.com
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule, StorageBucket } from "@angular/fire/storage";
 import { environment } from "../environments/environment";
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterComponent } from './register/register.component';
@@ -34,6 +35,9 @@ import { CoursewiseMaterialComponent } from './coursewise-material/coursewise-ma
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PersonalPageComponent } from './personal-page/personal-page.component';
+import { CourseRowComponent } from './course-row/course-row.component';
+import { AddFilesComponent } from './add-files/add-files.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +59,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     CoursewiseMaterialComponent,
     UpdateDetailsComponent,
     ChangePasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    PersonalPageComponent,
+    CourseRowComponent,
+    AddFilesComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,9 +87,12 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     MatTableFilterModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
     MatAutocompleteModule
   ],
-  providers: [],
+  providers: [
+    { provide : StorageBucket, useValue : 'gs://acadbox-6a8ee.appspot.com/' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

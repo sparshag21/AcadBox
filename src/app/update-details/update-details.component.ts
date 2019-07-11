@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../user';
 import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore"; 
-import { AngularFireAuth } from "@angular/fire/auth";
 import { FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
 
 @Component({
@@ -25,7 +24,7 @@ export class UpdateDetailsComponent implements OnInit {
     roll : ["", [Validators.required, Validators.maxLength(6), Validators.minLength(6)]]
   })
 
-  constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private fb : FormBuilder) {
+  constructor(private afs : AngularFirestore, private fb : FormBuilder) {
     this.usersCollection = afs.collection("users");
    }
 

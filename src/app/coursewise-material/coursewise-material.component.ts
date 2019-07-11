@@ -31,7 +31,7 @@ export class CoursewiseMaterialComponent implements OnInit {
 
   constructor(private afs: AngularFirestore) {
     // this.itemRef = this.afs.collection('test/test2/test3');
-    this.courseNo = "PHY101A";
+    this.courseNo = "MTH101A";
   }
 
   showAssignments() {

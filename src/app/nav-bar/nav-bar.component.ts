@@ -3,10 +3,10 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { useAnimation } from '@angular/animations';
-import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
 import { User } from "../user";
-import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from '@angular/router';
+import { UserDataService } from "../user-data.service";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,44 +15,25 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent {
 
-  userDocument : AngularFirestoreDocument<User>;
-  user : User = {
-    name : "",
-    username : "",
-    roll : "",
-    email : "",
-    courses : [],
-    uid : ""
-  };
-  uid : string = "";
+  user : any;
+  loggedIn = 0;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private afs : AngularFirestore, private afAuth : AngularFireAuth, private router : Router) {
-    afAuth.auth.onAuthStateChanged( (user) => {
-      if(user){
-        this.uid = user.uid;
-      }
-      else{
-        this.uid = "guest";
-      }
-      this.fetchUserData();
-    });
-  }
-
-  fetchUserData(){
-    if(this.uid != "guest"){
-      this.userDocument = this.afs.doc<User>("users/" + this.uid);
-      this.userDocument.valueChanges().subscribe( (user) => {
-        this.user = user;
-      })
-    }
-    else{
-      this.user.username = "Guest";
-    }
+  constructor(private breakpointObserver: BreakpointObserver, private router : Router, public userDataService : UserDataService, private afAuth : AngularFireAuth) {
+   userDataService.userDocument$.subscribe( (user) => {
+     if(user.uid!="guest"){
+       this.loggedIn = 1;
+       console.log(user.uid);
+     }
+     else{
+       this.loggedIn = 0;
+     }
+     this.user=user;
+   }) 
   }
 
   logout(){
@@ -65,20 +46,29 @@ export class NavBarComponent {
   }
 
   profile(){
-    if(this.uid=="guest"){
+    if(this.user.uid=="guest"){
       alert("You must be signed in to access this feature");
     }
     else{
-      this.router.navigate(["/profile", this.uid]);
+      this.router.navigate(["/profile", this.user.uid]);
     }
   }
 
   upload(){
-    if(this.uid=="guest"){
+    if(this.user.uid=="guest"){
       alert("You must be signed in to access this feature");
     }
     else{
       this.router.navigate(["/upload"]);
+    }
+  }
+
+  customPage(){
+    if(this.user.uid=="guest"){
+      this.router.navigate(["/about"]);
+    }
+    else{
+      this.router.navigate(["/my-box"]);
     }
   }
 }
