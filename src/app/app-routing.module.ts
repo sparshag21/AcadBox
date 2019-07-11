@@ -33,7 +33,7 @@ import { AddFilesComponent } from './add-files/add-files.component';
 
 const routes: Routes = [{
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
   },
   {
