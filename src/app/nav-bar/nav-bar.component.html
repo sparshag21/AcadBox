@@ -15,7 +15,7 @@
       <a mat-list-item href="#">Course Material</a>
       <a mat-list-item href="#">{{loggedIn ? "My Box" : "About Us"}}</a>
       <a mat-list-item (click)="upload()">Upload Material</a>
-      <a mat-list-item (click)="profile()">{{user.username}}</a>
+      <a mat-list-item (click)="profile()">{{user.username=='Guest' ? 'Profile' : user.username}}</a>
       <a mat-list-item (click)="loggedIn ? logout() : login()">{{loggedIn ? "Logout" : "Login"}}</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -34,7 +34,7 @@
       <span class="spacer"></span>
       <button mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="customPage()">{{loggedIn ? "My Box" : "About Us"}}</button>
       <button mat-flat-button color="accent" [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="upload()">Upload Material</button>
-      <button mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="profile()">{{user.username}}</button>
+      <button mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="profile()">{{user.username=='Guest' ? 'Profile' : user.username}}</button>
       <button mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="loggedIn ? logout() : login()">{{loggedIn ? "Logout" : "Login"}}</button>
     </mat-toolbar>
     <ng-content></ng-content>
