@@ -39,6 +39,8 @@ import { PersonalPageComponent } from './personal-page/personal-page.component';
 import { CourseRowComponent } from './course-row/course-row.component';
 import { AddFilesComponent } from './add-files/add-files.component';
 import {  NgbRatingModule } from "@ng-bootstrap/ng-bootstrap";
+import { LandingPageComponent } from './landing-page/landing-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +65,7 @@ import {  NgbRatingModule } from "@ng-bootstrap/ng-bootstrap";
     PersonalPageComponent,
     CourseRowComponent,
     AddFilesComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
