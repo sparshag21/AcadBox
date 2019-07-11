@@ -46,11 +46,7 @@ export class DashboardComponent implements OnInit {
   types = new FormControl();
   typeList: string[] = ['IC','ESO/SO','HSS','Departmental Course'];
   
-<<<<<<< HEAD
-  constructor(private Router: Router) { }
-=======
   constructor(private router: Router) { }
->>>>>>> master
 
   ngOnInit() {
 
