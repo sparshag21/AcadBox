@@ -1,15 +1,20 @@
 table {
-    width: 80%;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 80%;
-  }
-  .content{
-    padding-left: 4%;
-    height: 80%;
-    overflow: auto;
+  width: 100%;
+}
 
-  }
-  
+.mat-form-field {
+  font-size: 14px;
+  width: 80%;
+}
+
+.content {
+  padding: 4%;
+  height: 80%;
+  overflow: auto;
+  position: sticky;
+}
+
+.mat-row:hover {
+  background-color: rgb(38, 0, 255);
+  cursor: pointer;
+}

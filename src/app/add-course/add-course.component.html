@@ -1,0 +1,14 @@
+<div fxLayout = "column" fxLayoutAlign="center center" class="container">
+    <div fxLayout = "column" fxLayoutAlign="center center" class="sub-container">
+        <mat-form-field id="input-text">
+            <input type="text" placeholder="Choose Course" matInput [formControl]="filterControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let course of filtered | async" [value]="course">
+                    {{course}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="add()">Add Course</button>
+        <button mat-flat-button color="primary" (click)="back()">Back</button>
+    </div>
+</div>

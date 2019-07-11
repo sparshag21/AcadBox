@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign="center center" id="container" *ngIf="!reset">
+  <div fxLayout="column" fxLayoutAlign="center center" id="content-container">
+    <div *ngFor="let text of messages" style="width: 100%">
+      <app-alert-box [message]="text" [color]="true"></app-alert-box>
+    </div>
+      <h1>Login</h1>
+      <div id="text-container">
+        <mat-form-field class="detail-input">
+          <input matInput placeholder="Email" required [(ngModel)]="user.email">
+        </mat-form-field><br>
+        <mat-form-field class="detail-input">
+          <input matInput placeholder="Password" type="password" required [(ngModel)]="user.password">
+        </mat-form-field><br><br>
+      </div>
+      <button mat-flat-button color="primary" (click)="checkRequired()">Login</button>
+      <div class="sub-fields">
+        <p class="links" (click)="resetPass()">Forgot Password?</p>
+        <a routerLink="/register" class="links">New User?</a>
+      </div>
+  </div>
+</div>
+
+<app-reset-password *ngIf="reset" (cancel)="cancelReset($event)"></app-reset-password>

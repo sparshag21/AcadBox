@@ -1,31 +1,31 @@
-<div fxLayout="column" fxLayoutAlign="center center">
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
   <div class="header">
     <h1>Profile</h1>
   </div>
   <div>
-    <table cellpadding="25px">
+    <table cellpadding="10px">
       <tr>
         <td class="label-data">Name</td>
         <td>:</td>
-        <td>User Name</td>
+        <td>{{user.name}}</td>
       </tr>
       <tr>
         <td class="label-data">Username</td>
         <td>:</td>
-        <td>User username</td>
+        <td>{{user.username}}</td>
       </tr>
       <tr>
         <td class="label-data">Roll Number</td>
         <td>:</td>
-        <td>User Roll No</td>
+        <td>{{user.roll}}</td>
       </tr>
       <tr>
         <td class="label-data">E-Mail</td>
         <td>:</td>
-        <td>User Mail</td>
+        <td>{{user.email}}</td>
       </tr>
     </table>
   </div>
-  <button mat-flat-button color="primary">Update Details</button>
-  <button mat-flat-button color="primary">Change Password</button>
+  <button mat-raised-button color="primary" (click)="updateDetails()">Update Details</button>
+  <button mat-raised-button color="primary" (click)="changePassword()">Change Password</button>
 </div>

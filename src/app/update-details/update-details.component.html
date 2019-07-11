@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container" *ngIf="user">
+  <div fxLayout="column" class="sub-container">
+    <div *ngFor="let error of errorMessages">
+      <app-alert-box [message]="error" [color]="1"></app-alert-box>
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="updateUser()" fxLayout="column" fxLayoutAlign="center center">
+        <h1>Change Details</h1>
+    <mat-form-field class="input">
+      <input type="text" matInput placeholder="Name" formControlName="name"/>
+      <mat-error *ngIf="profileForm.get('name').invalid">{{getErrors("name")}}</mat-error>
+    </mat-form-field><br>
+    <mat-form-field class="input">
+      <input type="text" matInput placeholder="Username" formControlName="username"/>
+      <mat-error *ngIf="profileForm.get('username').invalid">{{getErrors("username")}}</mat-error>
+    </mat-form-field><br>
+    <mat-form-field class="input">
+      <input type="text" matInput placeholder="Roll Number" formControlName="roll"/>
+      <mat-error *ngIf="profileForm.get('roll').invalid">{{getRollErrors()}}</mat-error>
+    </mat-form-field><br>
+    <mat-form-field class="input">
+      <input type="text" matInput placeholder="Email" formControlName="email"/>
+      <mat-error *ngIf="profileForm.get('email').invalid">{{getEmailErrors()}}</mat-error>
+    </mat-form-field><br>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+    <button mat-raised-button color="primary" (click)="disableChanges()">Back</button>
+  </div>
+</div>

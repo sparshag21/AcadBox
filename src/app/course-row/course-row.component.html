@@ -1,0 +1,18 @@
+<div fxLayout="column" class="container">
+  <div fxLayout="row">
+    <h2>{{course}}&nbsp;&nbsp;</h2>
+    <mat-form-field>
+        <mat-label>Document Type</mat-label>
+        <mat-select [formControl]="doctypeControl">
+          <mat-option *ngFor="let type of docList" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayout.lt-lg="row wrap" fxLayoutAlign.lt-lg="center center">
+  <div *ngFor="let file of data">
+    <app-show-files [files]="file"></app-show-files>
+  </div>
+</div>
+</div>

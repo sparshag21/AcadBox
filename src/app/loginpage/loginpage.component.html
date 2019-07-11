@@ -1,16 +1,27 @@
 <body>
-<div fxLayout="row" fxLayoutAlign="center center" class="content">
-  <div fxLayout="column" id="details" fxLayoutAlign="center center">
-    <input placeholder="Email" class="input"><br> 
-    <input type="password" placeholder="Password" class="input"><br>
-    <button mat-raised-button color="primary">Login</button><br>
-    <div>
-      New User?
-      <div><br>
-      <button mat-raised-button color="primary">Register</button>
-    </div><br>
-  </div>  
-  </div>
-  </div>
   <mat-card-title id="extra" fxLayoutAlign="center center" color="primary">AcadBox</mat-card-title>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" class="content">
+    <div fxLayout="column wrap" fxFlex="0 1 calc(30% - 32px)" style="" fxLayoutGap="20px" id="details"
+      fxLayoutAlign="center center">
+      <mat-form-field class="detail-input">
+        <input matInput placeholder="Email">
+      </mat-form-field><br>
+      <mat-form-field class="detail-input">
+        <input matInput placeholder="Password" type="password">
+      </mat-form-field><br>
+      <button mat-raised-button color="primary" class="detail-input">Sign In</button><br>
+      <div fxFlexAlign="flex-end" class="forgotpw">
+        <a href="#">
+          Forgot Password?
+        </a></div>
+      <div fxFlex="0 1 calc(50% - 32px)">
+        <button mat-raised-button color="primary" class="detail-input">Register</button>
+      </div><br>
+      <!-- <div fxFlexAlign="center">
+        <a href="#" class="create">
+          Create Account
+        </a>
+      </div> -->
+    </div>
+  </div>
 </body>
