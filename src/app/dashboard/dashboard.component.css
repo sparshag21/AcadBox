@@ -15,6 +15,6 @@ table {
 }
 
 .mat-row:hover {
-  background-color: rgb(38, 0, 255);
+  background-color: rgb(138, 193, 224);
   cursor: pointer;
 }

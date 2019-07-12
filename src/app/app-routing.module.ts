@@ -66,7 +66,7 @@ const routes: Routes = [{
     component: AddFilesComponent
   },
   {
-    path: 'coursewise-material',
+    path: 'course-material/:courseid',
     component: CoursewiseMaterialComponent
   },
   {
