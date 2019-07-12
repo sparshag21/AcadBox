@@ -9,7 +9,6 @@ import { trigger, transition, style, animate } from '@angular/animations';
     trigger('fade', [
       transition('void => *, * => void', [
         style({
-          background: 'yellow',
           opacity: 0
         }),
         animate(1000)

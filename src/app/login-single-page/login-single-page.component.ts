@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from '@angular/router';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-login-single-page',
   templateUrl: './login-single-page.component.html',
-  styleUrls: ['./login-single-page.component.css']
+  styleUrls: ['./login-single-page.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({ opacity: 0}),
+        animate(2000)
+      ])
+    ])
+    ]
 })
 export class LoginSinglePageComponent implements OnInit {
 
