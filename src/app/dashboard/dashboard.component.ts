@@ -8,22 +8,22 @@ import { trigger, transition, style, animate } from '@angular/animations';
 
 
 const ELEMENT_DATA: Course[] = [
-  { name: 'ESC101A' ,type: 'IC', dept: 'CSE' },
-  { name: 'CHM101A' ,type: 'IC', dept: 'CHM' },
-  { name: 'CHM102A',type: 'IC', dept: 'CHM' },
-  { name: 'MTH101A' ,type: 'IC', dept: 'MTH' },
-  { name: 'MTH102A',type: 'IC', dept: 'MTH' },
-  { name: 'PHY101A',type: 'IC', dept: 'PHY' },
-  { name: 'PHY102A',type: 'IC', dept: 'PHY' },
-  { name: 'PHY103A',type: 'IC', dept: 'PHY' },
-  { name: 'TA101A',type: 'IC', dept: 'CE' },
-  { name: 'LIF101A',type: 'IC', dept: 'BSBE' },
-  { name: 'PSY152A' ,type: 'HSS-1', dept: 'HSS' },
-  { name: 'ART102A',type: 'HSS-1', dept: 'HSS' },
-  { name: 'ENG124A',type: 'HSS-1', dept: 'HSS' },
-  { name: 'PHI143A',type: 'HSS-1', dept: 'HSS' },
-  { name: 'ECO101A',type: 'HSS-1', dept: 'HSS' },
-  { name: 'SOC171A',type: 'HSS-1', dept: 'HSS' },
+  { name: 'ESC101' ,type: 'IC', dept: 'CSE' },
+  { name: 'CHM101' ,type: 'IC', dept: 'CHM' },
+  { name: 'CHM102',type: 'IC', dept: 'CHM' },
+  { name: 'MTH101' ,type: 'IC', dept: 'MTH' },
+  { name: 'MTH102',type: 'IC', dept: 'MTH' },
+  { name: 'PHY101',type: 'IC', dept: 'PHY' },
+  { name: 'PHY102',type: 'IC', dept: 'PHY' },
+  { name: 'PHY103',type: 'IC', dept: 'PHY' },
+  { name: 'TA101',type: 'IC', dept: 'CE' },
+  { name: 'LIF101',type: 'IC', dept: 'BSBE' },
+  { name: 'PSY152' ,type: 'HSS-1', dept: 'HSS' },
+  { name: 'ART102',type: 'HSS-1', dept: 'HSS' },
+  { name: 'ENG124',type: 'HSS-1', dept: 'HSS' },
+  { name: 'PHI143',type: 'HSS-1', dept: 'HSS' },
+  { name: 'ECO101',type: 'HSS-1', dept: 'HSS' },
+  { name: 'SOC171',type: 'HSS-1', dept: 'HSS' },
   
 ];
 @Component({
