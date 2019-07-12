@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
   }
 
   goToCourse(row){
-    this.router.navigate([row['name']]);
+    this.router.navigate(['/course-material',row['name']]);
   }
 
 }
