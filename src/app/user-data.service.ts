@@ -12,7 +12,7 @@ import { File } from './file';
 
 export class UserDataService {
 
-  courseList = ["MTH101", "ESC101"]
+  courseList = ["MTH101", "ESC101", "MTH102", "PHY103", "PHY102", "TA101", "CHM101", "CHM102", "PHY101", "SOC171", "ECO101", "PHI143", "ENG124", "ART102", "PSY152", "LIF101"]
   typeList = ['Assignment', 'Endsem', 'Midsem', 'Quiz', 'Lecture', 'Other', 'Books', 'Notes']
 
   userDocument$ : Observable<any>;
