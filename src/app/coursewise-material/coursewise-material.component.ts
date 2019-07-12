@@ -71,11 +71,6 @@ export class CoursewiseMaterialComponent implements OnInit {
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
-  showLectures() {
-    this.category = "Lecture";
-    this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
-    this.item$ = this.itemRef.valueChanges();
-  }
   showMidsems() {
     this.category = "Midsem";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
