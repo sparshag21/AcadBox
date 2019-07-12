@@ -43,6 +43,10 @@ export class UserDataService {
     })
   }
 
+  loggedIn() {
+    return !localStorage.getItem('token');
+  }
+
   readCourseData(name : string, doctype : string) : Observable<any>{
     return this.afs.doc<any>("courses/"+name).collection<any>(doctype, ref => ref.orderBy('rating').limit(5)).valueChanges();
   }
@@ -64,4 +68,6 @@ export class UserDataService {
     }
     this.afs.doc('courses/'+file.course+"/"+file.doctype+"/"+file.uid).update(file);
   }
+
+  
 }
