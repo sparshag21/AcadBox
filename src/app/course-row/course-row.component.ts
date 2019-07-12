@@ -22,14 +22,14 @@ export class CourseRowComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userDataService.readCourseData(this.course+'A', 'endsem').subscribe( (data) => {
+    this.userDataService.readCourseData(this.course, 'Endsem').subscribe( (data) => {
       this.data = data;
     })
 
     this.doctypeControl.valueChanges.subscribe( (value) => {
-      value = value.toLowerCase();
       this.userDataService.readCourseData(this.course, value).subscribe( (data) => {
         this.data = data;
+        console.log(data);
       })
     })
   }
