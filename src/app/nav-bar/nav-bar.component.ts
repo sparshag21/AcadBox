@@ -45,6 +45,10 @@ export class NavBarComponent {
     this.router.navigate(["/login"]);
   }
 
+  landing(){
+    this.router.navigate(["/landing-page"])
+  }
+
   profile(){
     if(this.user.uid=="guest"){
       alert("You must be signed in to access this feature");

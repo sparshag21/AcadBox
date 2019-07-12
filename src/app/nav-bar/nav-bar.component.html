@@ -29,7 +29,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>AcadBox</span>
+      <button mat-button (click)="loggedIn ? profile() : landing() ">AcadBox</button>
       <button routerLink="/dashboard" mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}">Course Material</button>
       <span class="spacer"></span>
       <button mat-button [ngClass]="{'hidden' : (isHandset$ | async) === true}" (click)="customPage()">{{loggedIn ? "My Box" : "About Us"}}</button>

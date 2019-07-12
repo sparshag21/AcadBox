@@ -8,5 +8,5 @@ export class File {
     uid: string;
     description: string;
     uploader: { uid: string; username: string };
-    raters : {}
+    raters : Object
 }
