@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatTableFilter } from 'mat-table-filter';
 import { Course } from '../course';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 
 const ELEMENT_DATA: Course[] = [
@@ -28,7 +29,15 @@ const ELEMENT_DATA: Course[] = [
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  animations: [
+  trigger('fade', [
+    transition('void => *', [
+      style({ background: 'yellow', opacity: 0}),
+      animate(2000)
+    ])
+  ])
+  ]
 })
 export class DashboardComponent implements OnInit {
 

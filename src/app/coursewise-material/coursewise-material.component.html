@@ -25,7 +25,7 @@
     </div>
 
     <div fxLayout="row wrap" fxFlex="1 0 auto" fxLayoutAlign="center center" style="max-width:600px">
-      <div fxLayoutGap="20px" *ngFor="let item of item$ | async">
+      <div @fade fxLayoutGap="20px" *ngFor="let item of item$ | async">
         <app-show-files [files]='item'></app-show-files>
       </div>
     </div>

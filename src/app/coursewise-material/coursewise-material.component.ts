@@ -20,10 +20,27 @@ import {
 import {
   Observable
 } from 'rxjs';
+import {
+  trigger,
+  transition,
+  style,
+  animate
+} from '@angular/animations';
 @Component({
   selector: 'app-coursewise-material',
   templateUrl: './coursewise-material.component.html',
-  styleUrls: ['./coursewise-material.component.css']
+  styleUrls: ['./coursewise-material.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({
+          background: 'yellow',
+          opacity: 0
+        }),
+        animate(2000)
+      ])
+    ])
+  ]
 })
 export class CoursewiseMaterialComponent implements OnInit {
 
