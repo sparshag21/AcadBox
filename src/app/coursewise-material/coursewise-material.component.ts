@@ -2,7 +2,11 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-// import { FILES } from '../mock-files';
+
+import {
+  ActivatedRoute
+} from '@angular/router';
+
 import {
   File
 } from '../file';
@@ -29,9 +33,9 @@ export class CoursewiseMaterialComponent implements OnInit {
   itemRef: AngularFirestoreCollection < File > ;
   item$: Observable < File[] > ;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, private route: ActivatedRoute) {
     // this.itemRef = this.afs.collection('test/test2/test3');
-    this.courseNo = "MTH101A";
+    this.courseNo = this.route.snapshot.paramMap.get('courseid');
   }
 
   showAssignments() {
