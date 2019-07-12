@@ -122,7 +122,7 @@ export class UploadfileComponent {
           rating : 0,
           raters : {},
           uid : this.afs.createId(),
-          description : this.filetype + this.fileName,
+          description : (this.filetype ? this.filetype : '') + (this.fileName ? this.fileName : ''),
           uploader : {
             username : this.user.username,
             uid : this.user.uid
