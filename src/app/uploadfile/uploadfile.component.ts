@@ -1,12 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from "@angular/fire/storage";
 import { File } from '../file';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../user';
-import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { UserDataService } from "../user-data.service";
+import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,17 +18,12 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./uploadfile.component.css']
 })
 export class UploadfileComponent {
+
+  @Input() file : any;
+
   myform = FormGroup;
   userDocument: AngularFirestoreDocument<User>;
-  user: User = {
-    name: '',
-    username: '',
-    roll: '',
-    email: '',
-    courses: [],
-    uid: ''
-  };
-  uid: string = '';
+  user: User;
 
   doccollection: AngularFirestoreCollection<File>;
   docs: AngularFirestoreDocument<File>;
@@ -43,15 +41,10 @@ export class UploadfileComponent {
   isDisable: boolean;
   isDisabled: boolean;
 
-  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
-    afAuth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.uid = user.uid;
-      } else {
-        this.uid = 'guest';
-      }
-      this.fetchUserData();
-    });
+  constructor(private afs: AngularFirestore, private userDataService: UserDataService, private afStor : AngularFireStorage, private router : Router) {
+    userDataService.userDocument$.subscribe( (user) => {
+      this.user = user;
+    })
   }
   action(e) {
     // this.fileName = '';
@@ -89,38 +82,56 @@ export class UploadfileComponent {
       this.isDisabled = true;
     }
   }
+  // postfile() {
+  //   this.docs = this.afs.doc<File>('course/' + this.currcourse);
+  //   this.doccollection = this.docs.collection<File>(this.doctype);
+  //   const newFile: File = {
+  //     course: this.currcourse,
+  //     year: this.year,
+  //     semester: this.sem,
+  //     doctype: this.doctype,
+  //     link: this.drivelink,
+  //     rating: 0,
+  //     description: this.fileName + ' ' + this.filetype,
+  //     uid: this.afs.createId(),
+  //     uploader : {
+  //       username : this.user.username,
+  //       uid : this.user.uid
+  //     },
+  //     raters: {}
+  //   };
+  //   // console.log("uploading");
+  //   this.doccollection.doc(newFile.uid).set(newFile);
+  //   window.alert('Uploaded Successfully\nThanks for your contribution');
+  // }
 
-  fetchUserData() {
-    if (this.uid !== 'guest') {
-      this.userDocument = this.afs.doc<User>('users/' + this.uid);
-      this.userDocument.valueChanges().subscribe((user) => {
-        this.user = user;
-      });
-    } else {
-      this.user.username = 'Guest';
-    }
-  }
-
-  postfile() {
-    this.docs = this.afs.doc<File>('course/' + this.currcourse);
-    this.doccollection = this.docs.collection<File>(this.doctype);
-    const newFile: File = {
-      course: this.currcourse,
-      year: this.year,
-      semester: this.sem,
-      doctype: this.doctype,
-      link: this.drivelink,
-      rating: 0,
-      description: this.fileName + ' ' + this.filetype,
-      uid: this.afs.createId(),
-      uploader : {
-        username : this.user.username,
-        uid : this.user.uid
-      },
-      raters: {}
-    };
-    // console.log("uploading");
-    this.doccollection.doc(newFile.uid).set(newFile);
-    window.alert('Uploaded Successfully\nThanks for your contribution');
+  postFile(){
+    const file = this.file;
+    const filePath = this.file.name;
+    const ref = this.afStor.ref(filePath);
+    const task = ref.put(file);
+    let link : Observable<any>;
+    task.snapshotChanges().pipe(
+      finalize(() => {link = ref.getDownloadURL(); link.subscribe( (url) => {
+        let newFile : File = {
+          link : url,
+          year : this.year,
+          semester : this.sem,
+          doctype : this.doctype,
+          course : this.currcourse,
+          rating : 0,
+          raters : {},
+          uid : this.afs.createId(),
+          description : this.filetype + this.fileName,
+          uploader : {
+            username : this.user.username,
+            uid : this.user.uid
+          }
+        };
+        this.afs.collection("courses/"+this.currcourse+"/"+this.doctype+"/").doc(newFile.uid).set(newFile);
+        this.afs.collection("users/"+this.user.uid+"/"+"files").doc(newFile.uid).set(newFile);
+        this.router.navigate(["/dashboard"]);
+      })})
+    ).subscribe()
   }
 }
