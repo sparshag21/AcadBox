@@ -88,7 +88,8 @@ import { AddFilesComponent } from './add-files/add-files.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [
     { provide : StorageBucket, useValue : 'gs://acadbox-6a8ee.appspot.com/' }

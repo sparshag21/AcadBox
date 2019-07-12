@@ -36,7 +36,12 @@ export class UploadfileComponent {
   doctype: string;
   drivelink: string;
   fileName: string;
-  doc: number;
+  filetype: string;
+  // doc: number;
+  placeholderofinput: string;
+  placeholder2: string;
+  isDisable: boolean;
+  isDisabled: boolean;
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     afAuth.auth.onAuthStateChanged((user) => {
@@ -50,30 +55,38 @@ export class UploadfileComponent {
   }
   action(e) {
     // this.fileName = '';
-    this.doc = 0;
+    this.isDisable = false;
+    this.isDisabled = false;
+    // this.placeholderofinput = 'a';
     if (e === 'Quiz') {
-      this.doc = 1;
+      this.placeholderofinput = 'Quiz No.';
     }
     if (e === 'Midsem') {
-      this.doc = 2;
+      this.isDisable = true;
+      // this.placeholderofinput = 'a';
     }
     if (e === 'Endsem') {
-      this.doc = 3;
+      this.isDisable = true;
+      // this.placeholderofinput = 'a';
     }
     if (e === 'Assignment') {
-      this.doc = 4;
+      this.placeholderofinput = 'Assignment No.';
     }
     if (e === 'Lecture Notes') {
-      this.doc = 5;
+      this.placeholderofinput = 'Lecture No.';
+      this.isDisabled = true;
     }
     if (e === 'Class Notes') {
-      this.doc = 6;
+      this.placeholderofinput = 'Class Note No.';
+      this.isDisabled = true;
     }
     if (e === 'Books') {
-      this.doc = 7;
+      this.placeholderofinput = 'Name of book';
+      this.isDisabled = true;
     }
     if (e === 'Other') {
-      this.doc = 8;
+      this.placeholderofinput = 'Description of file';
+      this.isDisabled = true;
     }
   }
 
@@ -98,12 +111,13 @@ export class UploadfileComponent {
       doctype: this.doctype,
       link: this.drivelink,
       rating: 0,
-      description: this.fileName,
+      description: this.fileName + ' ' + this.filetype,
       uid: this.afs.createId(),
       uploader : {
         username : this.user.username,
         uid : this.user.uid
-      }
+      },
+      raters: {}
     };
     // console.log("uploading");
     this.doccollection.doc(newFile.uid).set(newFile);
