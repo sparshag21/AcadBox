@@ -8,6 +8,8 @@
     Description : &nbsp;{{files.doctype+" "+files.year+" "+files.semester}}<br>
     Uploaded By : &nbsp;{{files.uploader.username}}<br>
     Rating : &nbsp;{{files.rating}}<br>
-    <ngb-rating [(rate)]="currentRate" [(max)]="max" (rateChange)="updateRating()"></ngb-rating>
+    <div *ngIf="user && user.username!='Guest'">
+      <ngb-rating [(rate)]="currentRate" [(max)]="max" (rateChange)="updateRating()"></ngb-rating>
+    </div>
   </div>
 </mat-card>
