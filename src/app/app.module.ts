@@ -92,6 +92,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     MatAutocompleteModule,
+    MatInputModule,
     NgbRatingModule
   ],
   providers: [
