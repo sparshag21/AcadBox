@@ -28,7 +28,7 @@ export class CourseRowComponent implements OnInit {
 
     this.doctypeControl.valueChanges.subscribe( (value) => {
       value = value.toLowerCase();
-      this.userDataService.readCourseData(this.course+'A', value).subscribe( (data) => {
+      this.userDataService.readCourseData(this.course, value).subscribe( (data) => {
         this.data = data;
       })
     })
