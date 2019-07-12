@@ -32,7 +32,7 @@ export class ShowFilesComponent implements OnInit {
   }
 
   openFull(){
-    window.open(this.iurl);
+    window.open(this.iurl.changingThisBreaksApplicationSecurity);
   }
 
   updateRating(){

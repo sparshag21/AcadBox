@@ -56,43 +56,48 @@ export class CoursewiseMaterialComponent implements OnInit {
   }
 
   showAssignments() {
-    this.category = "assignment";
+    this.category = "Assignment";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
 
   showBooks() {
-    this.category = "books";
+    this.category = "Books";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
   showEndsems() {
-    this.category = "endsem";
+    this.category = "Endsem";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
   showLectures() {
-    this.category = "lecture";
+    this.category = "Lecture";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
   showMidsems() {
-    this.category = "midsem";
+    this.category = "Midsem";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
   showNotes() {
-    this.category = "notes";
+    this.category = "Lecture Notes";
+    this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
+    this.item$ = this.itemRef.valueChanges();
+  }
+  showNotes1() {
+    this.category = "Class Notes";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
   showQuizzes() {
-    this.category = "quiz";
+    this.category = "Quiz";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
   showOther() {
-    this.category = "other";
+    this.category = "Other";
     this.itemRef = this.afs.collection(`courses/${this.courseNo}/${this.category}`);
     this.item$ = this.itemRef.valueChanges();
   }
