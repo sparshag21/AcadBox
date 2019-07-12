@@ -1,6 +1,15 @@
-<div fxLayout="column" fxLayoutAlign="center center">
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
   <br>
+  <h1>Upload Files</h1>
   <div class="input-header">
-    <input type="file" multiple="multiple" (change)="loadFile($event)"/>
+    <input type="file" (change)="loadFile($event)"/>
+  </div>
+  <div class="upload-container" *ngIf="files">
+    <div *ngFor="let file of files">
+      <app-uploadfile [file]="file"></app-uploadfile>
+    </div>
+  </div>
+  <div class="submit" *ngIf="files">
+    <!-- <button mat-raised-button color="primary">Upload</button> -->
   </div>
 </div>

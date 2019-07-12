@@ -1,8 +1,11 @@
 <body>
   <div id="container">
     <div id="content-container">
-      <form #myform="ngForm" (ngSubmit)="postfile(); myform.reset()">
+      <form #myform="ngForm" (ngSubmit)="postFile()">
         <div fxLayout="row">
+          <div class="name">
+            <h2>{{file.name}}</h2>
+          </div>
           <mat-form-field>
             <mat-label>Select Course</mat-label>
             <select matNativeControl required value="" [(ngModel)]="currcourse" name="first">
@@ -77,9 +80,9 @@
               <option>Solutions</option>
             </select>
           </mat-form-field>
-          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-          <button mat-raised-button color="alert">Delete</button>
+          <button mat-raised-button color="primary">Upload</button>
         </div>
       </form>
     </div>

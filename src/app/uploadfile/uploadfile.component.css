@@ -1,5 +1,5 @@
 body {
-  padding-top: 40px;
+  padding-top: 10px;
   height: 100%;
   /* background-image: url("../background.jpg"); */
 }
@@ -8,12 +8,14 @@ button{
   height: 42px;
 }
 
-#container{
-  height: 92%;
+#content-container{
+  padding : 10px;
 }
 
-#content-container{
-  background-color: white;
+.name{
+  width: 200px;
+  overflow: auto;
+  margin-right : 40px;
 }
 
 #text-container{

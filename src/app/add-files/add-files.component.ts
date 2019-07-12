@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from "@angular/fire/storage";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-files',
@@ -8,7 +9,7 @@ import { AngularFireStorage } from "@angular/fire/storage";
 })
 export class AddFilesComponent implements OnInit {
 
-  files : any;
+  files : [];
 
   constructor(private afStor : AngularFireStorage) { }
 
@@ -19,4 +20,6 @@ export class AddFilesComponent implements OnInit {
     this.files = event.target.files;
   }
 
+  uploadFile(){
+  }
 }
