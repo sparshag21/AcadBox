@@ -1,4 +1,6 @@
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import {
+  LandingPageComponent
+} from './landing-page/landing-page.component';
 import {
   NgModule
 } from '@angular/core';
@@ -28,8 +30,15 @@ import {
 import {
   CoursewiseMaterialComponent
 } from "./coursewise-material/coursewise-material.component";
-import { PersonalPageComponent } from './personal-page/personal-page.component';
-import { AddFilesComponent } from './add-files/add-files.component';
+import {
+  PersonalPageComponent
+} from './personal-page/personal-page.component';
+import {
+  AddFilesComponent
+} from './add-files/add-files.component';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { AuthGuard } from './auth.guard';
+import { Auth2Guard } from './auth2.guard';
 
 
 const routes: Routes = [{
@@ -39,7 +48,7 @@ const routes: Routes = [{
   },
   {
     path: 'landing-page',
-    component: LandingPageComponent
+    component: LandingPageComponent, canActivate: [AuthGuard]
   },
   {
     path: 'dashboard',
@@ -47,11 +56,11 @@ const routes: Routes = [{
   },
   {
     path: 'profile/:uid',
-    component: ProfileComponent
+    component: ProfileComponent, canActivate: [Auth2Guard]
   },
   {
     path: 'login',
-    component: LoginSinglePageComponent
+    component: LoginSinglePageComponent, canActivate: [AuthGuard]
   },
   {
     path: 'about',
@@ -59,7 +68,7 @@ const routes: Routes = [{
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent, canActivate: [AuthGuard]
   },
   {
     path: 'upload',
@@ -70,8 +79,8 @@ const routes: Routes = [{
     component: CoursewiseMaterialComponent
   },
   {
-    path : 'my-box',
-    component : PersonalPageComponent
+    path: 'my-box',
+    component: PersonalPageComponent
   }
 ];
 

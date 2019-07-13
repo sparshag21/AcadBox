@@ -10,7 +10,7 @@ table {
 .content {
   padding: 4%;
   height: 80%;
-  overflow: auto;
+  /* overflow: auto; */
   position: sticky;
 }
 

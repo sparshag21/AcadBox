@@ -27,10 +27,12 @@ export class NavBarComponent {
    userDataService.userDocument$.subscribe( (user) => {
      if(user.uid!="guest"){
        this.loggedIn = 1;
-       console.log(user.uid);
+      //  console.log(user.uid);
+      localStorage.setItem('token', user.uid);
      }
      else{
        this.loggedIn = 0;
+
      }
      this.user=user;
    }) 
@@ -38,7 +40,8 @@ export class NavBarComponent {
 
   logout(){
     this.afAuth.auth.signOut();
-    this.router.navigate(["/dashboard"]);
+    this.router.navigate(["/login"]);
+    localStorage.removeItem('token');
   }
 
   login(){

@@ -10,6 +10,7 @@ button{
 
 #content-container{
   padding : 10px;
+  width : 500px;
 }
 
 .name{
@@ -31,6 +32,6 @@ button{
 @media (max-width: 600px){
   #content-container{
     border: none;
-    width: 400px;
+    width: 280px;
   }
 }
