@@ -2,7 +2,7 @@
   <div id="container">
     <div id="content-container">
       <form #myform="ngForm" (ngSubmit)="postFile()">
-        <div fxLayout="row">
+        <div fxLayout="column" fxLayout.lt-lg="column">
           <div class="name">
             <h2>{{file.name}}</h2>
           </div>
