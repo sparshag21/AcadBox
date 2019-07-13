@@ -41,6 +41,7 @@ import { AddFilesComponent } from './add-files/add-files.component';
 import { NgbRatingModule } from "@ng-bootstrap/ng-bootstrap";
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthGuard } from './auth.guard';
+import { Auth2Guard } from './auth2.guard';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,7 @@ import { AuthGuard } from './auth.guard';
     NgbRatingModule
   ],
   providers: [
-    { provide : StorageBucket, useValue : 'gs://acadbox-6a8ee.appspot.com/' }, AuthGuard
+    { provide : StorageBucket, useValue : 'gs://acadbox-6a8ee.appspot.com/' }, AuthGuard, Auth2Guard
   ],
   bootstrap: [AppComponent]
 })

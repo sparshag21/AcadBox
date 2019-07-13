@@ -5,17 +5,17 @@ import { UserDataService } from './user-data.service';
 import { Router } from '@angular/router';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class Auth2Guard implements CanActivate {
   constructor(private auth: UserDataService, private router: Router) {}
 
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | boolean {
-      if (this.auth.loggedIn()) { console.log('access granted!'); return true; }
+      if (!this.auth.loggedIn()) { console.log('access granted!'); return true; }
 
       console.log('access denied!')
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/login']);
       return false
 
 

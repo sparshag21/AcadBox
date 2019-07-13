@@ -38,6 +38,7 @@ import {
 } from './add-files/add-files.component';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { AuthGuard } from './auth.guard';
+import { Auth2Guard } from './auth2.guard';
 
 
 const routes: Routes = [{
@@ -55,11 +56,11 @@ const routes: Routes = [{
   },
   {
     path: 'profile/:uid',
-    component: ProfileComponent, canActivate: [AuthGuard]
+    component: ProfileComponent, canActivate: [Auth2Guard]
   },
   {
     path: 'login',
-    component: LoginSinglePageComponent, 
+    component: LoginSinglePageComponent, canActivate: [AuthGuard]
   },
   {
     path: 'about',
